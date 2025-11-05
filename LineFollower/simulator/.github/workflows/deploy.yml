@@ -1,0 +1,104 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 'latest'
+          actions-cache-folder: 'emsdk-cache'
+
+      - name: Download Box2D
+        run: |
+          cd cpp/external
+          if [ ! -d "box2d" ]; then
+            git clone --depth 1 https://github.com/erincatto/box2d.git
+          fi
+
+      - name: Download Eigen
+        run: |
+          cd cpp/external
+          if [ ! -d "eigen" ]; then
+            git clone --depth 1 https://gitlab.com/libeigen/eigen.git
+          fi
+
+      - name: Build Box2D for WebAssembly
+        run: |
+          cd cpp/external/box2d
+          mkdir -p build
+          cd build
+          emcmake cmake -DCMAKE_BUILD_TYPE=Release \
+            -DBOX2D_BUILD_UNIT_TESTS=OFF \
+            -DBOX2D_BUILD_TESTBED=OFF ..
+          emmake make -j$(nproc)
+
+      - name: Build WebAssembly module
+        run: |
+          cd cpp
+          mkdir -p build
+          cd build
+          emcmake cmake -DCMAKE_BUILD_TYPE=Release ..
+          emmake make -j$(nproc)
+
+      - name: Build Svelte app
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
