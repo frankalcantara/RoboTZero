@@ -13,15 +13,22 @@ book:
   date: "11/22/2024"
   chapters:
     - index.qmd
-    - oper.qmd
-    - block.qmd
-    - config_layer.qmd
-    - control_layer.qmd
-    - testing_guide.qmd
+    - part: Line Follower 
+      chapters:
+        - index.qmd
+        - oper.qmd
+        - block.qmd
+        - config_layer.qmd
+        - control_layer.qmd
+        - testing_guide.qmd
+    - part: Line Follower Simulator
+      chapters:
+        - archSim.qmd
+        - optLineFollower1.qmd
     - references.qmd
   page-footer: "Copyright © 2024 Frank de Alcantara"
   site-url: https://frankalcantara.com
-  repo-url: https://github.com/frankalcantara/linefollower
+  repo-url: https://github.com/frankalcantara/RoboTZero
   repo-actions: [edit, issue]
   
 bibliography: references.bib

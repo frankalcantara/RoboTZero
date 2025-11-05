@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RobotZero - 2&nbsp; Line Following Robot Operation</title>
+<title>RobotZero - 3&nbsp; Line Following Robot Operation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,10 +73,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="RobotZero - 2&nbsp; Line Following Robot Operation">
+<meta property="og:title" content="RobotZero - 3&nbsp; Line Following Robot Operation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="RobotZero">
-<meta name="twitter:title" content="RobotZero - 2&nbsp; Line Following Robot Operation">
+<meta name="twitter:title" content="RobotZero - 3&nbsp; Line Following Robot Operation">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oper.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./oper.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">RobotZero</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/frankalcantara/linefollower" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/frankalcantara/RoboTZero" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -122,39 +122,79 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Line Follower</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oper.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./block.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./config_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./testing_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Line Follower Simulator</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./archSim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./optLineFollower1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -171,26 +211,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#operating-procedure" id="toc-operating-procedure" class="nav-link active" data-scroll-target="#operating-procedure"><span class="header-section-number">2.1</span> Operating Procedure</a>
+  <li><a href="#operating-procedure" id="toc-operating-procedure" class="nav-link active" data-scroll-target="#operating-procedure"><span class="header-section-number">3.1</span> Operating Procedure</a>
   <ul class="collapse">
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">2.1.1</span> Initial Setup</a></li>
-  <li><a href="#calibration-process" id="toc-calibration-process" class="nav-link" data-scroll-target="#calibration-process"><span class="header-section-number">2.1.2</span> Calibration Process</a></li>
-  <li><a href="#operation-start" id="toc-operation-start" class="nav-link" data-scroll-target="#operation-start"><span class="header-section-number">2.1.3</span> Operation Start</a></li>
-  <li><a href="#during-operation" id="toc-during-operation" class="nav-link" data-scroll-target="#during-operation"><span class="header-section-number">2.1.4</span> During Operation</a></li>
-  <li><a href="#stop-sequence" id="toc-stop-sequence" class="nav-link" data-scroll-target="#stop-sequence"><span class="header-section-number">2.1.5</span> Stop Sequence</a></li>
-  <li><a href="#data-retrieval-debug-mode-only" id="toc-data-retrieval-debug-mode-only" class="nav-link" data-scroll-target="#data-retrieval-debug-mode-only"><span class="header-section-number">2.1.6</span> Data Retrieval (Debug Mode Only)</a></li>
-  <li><a href="#error-recovery" id="toc-error-recovery" class="nav-link" data-scroll-target="#error-recovery"><span class="header-section-number">2.1.7</span> Error Recovery</a></li>
-  <li><a href="#operating-modes" id="toc-operating-modes" class="nav-link" data-scroll-target="#operating-modes"><span class="header-section-number">2.1.8</span> Operating Modes</a></li>
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">3.1.1</span> Initial Setup</a></li>
+  <li><a href="#calibration-process" id="toc-calibration-process" class="nav-link" data-scroll-target="#calibration-process"><span class="header-section-number">3.1.2</span> Calibration Process</a></li>
+  <li><a href="#operation-start" id="toc-operation-start" class="nav-link" data-scroll-target="#operation-start"><span class="header-section-number">3.1.3</span> Operation Start</a></li>
+  <li><a href="#during-operation" id="toc-during-operation" class="nav-link" data-scroll-target="#during-operation"><span class="header-section-number">3.1.4</span> During Operation</a></li>
+  <li><a href="#stop-sequence" id="toc-stop-sequence" class="nav-link" data-scroll-target="#stop-sequence"><span class="header-section-number">3.1.5</span> Stop Sequence</a></li>
+  <li><a href="#data-retrieval-debug-mode-only" id="toc-data-retrieval-debug-mode-only" class="nav-link" data-scroll-target="#data-retrieval-debug-mode-only"><span class="header-section-number">3.1.6</span> Data Retrieval (Debug Mode Only)</a></li>
+  <li><a href="#error-recovery" id="toc-error-recovery" class="nav-link" data-scroll-target="#error-recovery"><span class="header-section-number">3.1.7</span> Error Recovery</a></li>
+  <li><a href="#operating-modes" id="toc-operating-modes" class="nav-link" data-scroll-target="#operating-modes"><span class="header-section-number">3.1.8</span> Operating Modes</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/linefollower/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/linefollower/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./oper.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></h1>
 </div>
 
 
@@ -218,10 +258,10 @@ ul.task-list li input[type="checkbox"] {
 <p>When the programmed number of laps is completed, the robot enters its stopping sequence. It gradually reduces speed to ensure controlled deceleration and precise stopping. After stopping, if debugging is enabled, the collected performance data remains stored in flash memory, ready for retrieval and analysis.</p>
 <p>Data retrieval, available only in debug builds, occurs through a USB interface when the robot is stationary. Upon receiving the appropriate command through the serial interface, the robot transmits its stored data in a structured format, including session headers, performance records, event logs, and lap statistics. This data can then be analyzed to optimize the robot’s parameters such as PID constants, speed profiles, and acceleration rates.</p>
 <p>The entire system prioritizes real-time performance while ensuring data collection doesn’t interfere with the robot’s primary line-following function. Error checking and recovery mechanisms are implemented throughout the system, from sensor reading validation to data storage verification, ensuring reliable operation even under challenging conditions.</p>
-<section id="operating-procedure" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="operating-procedure"><span class="header-section-number">2.1</span> Operating Procedure</h2>
-<section id="initial-setup" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">2.1.1</span> Initial Setup</h3>
+<section id="operating-procedure" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="operating-procedure"><span class="header-section-number">3.1</span> Operating Procedure</h2>
+<section id="initial-setup" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">3.1.1</span> Initial Setup</h3>
 <ol type="1">
 <li>Place the robot near the course</li>
 <li>Power on the robot</li>
@@ -233,8 +273,8 @@ ul.task-list li input[type="checkbox"] {
 <li>After delay, LED turns off and robot is ready for calibration</li>
 </ol>
 </section>
-<section id="calibration-process" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="calibration-process"><span class="header-section-number">2.1.2</span> Calibration Process</h3>
+<section id="calibration-process" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="calibration-process"><span class="header-section-number">3.1.2</span> Calibration Process</h3>
 <ol type="1">
 <li>Press the start button for first calibration phase
 <ul>
@@ -253,8 +293,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="operation-start" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="operation-start"><span class="header-section-number">2.1.3</span> Operation Start</h3>
+<section id="operation-start" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="operation-start"><span class="header-section-number">3.1.3</span> Operation Start</h3>
 <ol type="1">
 <li>Place robot on the track</li>
 <li>Press start button again to begin operation
@@ -270,24 +310,24 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="during-operation" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="during-operation"><span class="header-section-number">2.1.4</span> During Operation</h3>
+<section id="during-operation" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="during-operation"><span class="header-section-number">3.1.4</span> During Operation</h3>
 <p>The robot recognizes three marker patterns: 1. Finish line marker (both sensors) - Updates lap count - Triggers stop sequence on second detection 2. Speed mode marker (left sensor only) - Toggles between normal and precision mode - In precision mode: SPEED_SLOW - In normal mode: BASE_FAST 3. Intersection marker (both sensors) - Logged but no special action taken</p>
 </section>
-<section id="stop-sequence" class="level3" data-number="2.1.5">
-<h3 data-number="2.1.5" class="anchored" data-anchor-id="stop-sequence"><span class="header-section-number">2.1.5</span> Stop Sequence</h3>
+<section id="stop-sequence" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="stop-sequence"><span class="header-section-number">3.1.5</span> Stop Sequence</h3>
 <p>The robot will stop automatically when: 1. Second finish line is detected 2. Stop sequence activates: - Speed reduces to SPEED_BRAKE - After 50ms deceleration - Final stop after 300ms - Motors power off</p>
 </section>
-<section id="data-retrieval-debug-mode-only" class="level3" data-number="2.1.6">
-<h3 data-number="2.1.6" class="anchored" data-anchor-id="data-retrieval-debug-mode-only"><span class="header-section-number">2.1.6</span> Data Retrieval (Debug Mode Only)</h3>
+<section id="data-retrieval-debug-mode-only" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="data-retrieval-debug-mode-only"><span class="header-section-number">3.1.6</span> Data Retrieval (Debug Mode Only)</h3>
 <p>If DEBUG_LEVEL &gt; 0: 1. When robot stops, flash memory is marked as ready 2. LED displays transmission pattern: - Alternates between slow blink (1000ms) and fast blink (300ms) - Pattern switches every 3000ms 3. Data can be retrieved through serial interface 4. After successful transmission: - Log ready flag is cleared - LED pattern stops</p>
 </section>
-<section id="error-recovery" class="level3" data-number="2.1.7">
-<h3 data-number="2.1.7" class="anchored" data-anchor-id="error-recovery"><span class="header-section-number">2.1.7</span> Error Recovery</h3>
+<section id="error-recovery" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="error-recovery"><span class="header-section-number">3.1.7</span> Error Recovery</h3>
 <p>If line is lost: 1. Robot uses last valid position 2. Position is forced to extreme (-100 or 100) based on last direction 3. PID controller attempts to recover 4. Robot continues operation if line is found</p>
 </section>
-<section id="operating-modes" class="level3" data-number="2.1.8">
-<h3 data-number="2.1.8" class="anchored" data-anchor-id="operating-modes"><span class="header-section-number">2.1.8</span> Operating Modes</h3>
+<section id="operating-modes" class="level3" data-number="3.1.8">
+<h3 data-number="3.1.8" class="anchored" data-anchor-id="operating-modes"><span class="header-section-number">3.1.8</span> Operating Modes</h3>
 <p>Two base operating speeds: 1. Normal Mode (BASE_FAST): - Base speed of 115 - Curve speed reduction active - Boost after curves (if not in precision mode)</p>
 <ol start="2" type="1">
 <li>Precision Mode:
@@ -868,13 +908,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Introduction RoboTZero">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./block.html" class="pagination-link" aria-label="RobotZero Modules Description">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -886,7 +926,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright © 2024 Frank de Alcantara</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/frankalcantara/linefollower/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/linefollower/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

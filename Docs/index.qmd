@@ -1,0 +1,14 @@
+---
+title: "Introduction RoboTZero"
+---
+
+This is a robotic technology research and development project. Our goal is not just to assemble robots. We intend to understand what we are doing and to push the development of automation, simulation, and robotics technologies forward a bit.
+
+Projects:
+
+- Line Follower Robot: 
+  - RoboTZeroNano v2024 
+  - Line Follower Simulator  
+- AuralFocus: 
+  - Audio-based 3D Positioning System 
+  - AuralFocus Simulator

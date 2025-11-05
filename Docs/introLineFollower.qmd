@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Introduction Follower"
 ---
 
 A line following robot is an autonomous system designed to follow a path marked by a line on the ground. These robots are often considered an entry point into robotics and automation, as they incorporate fundamental concepts of sensor reading, motor control, and real-time decision making. However, while the basic concept might seem simple, developing a high-performance line follower requires control systems, real-time control, speed, acceleration, and jerk management, performance analysis, and the definition and fine-tuning of a PID controller, all of which demand precise calibration.

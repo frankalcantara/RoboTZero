@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://frankalcantara.com/index.html</loc>
-    <lastmod>2024-12-01T20:12:22.898Z</lastmod>
+    <lastmod>2025-11-05T14:31:52.908Z</lastmod>
   </url>
   <url>
     <loc>https://frankalcantara.com/oper.html</loc>
@@ -25,11 +25,15 @@
     <lastmod>2024-12-01T20:26:39.141Z</lastmod>
   </url>
   <url>
-    <loc>https://frankalcantara.com/references.html</loc>
-    <lastmod>2024-11-24T00:23:51.762Z</lastmod>
+    <loc>https://frankalcantara.com/archSim.html</loc>
+    <lastmod>2025-11-05T14:12:23.086Z</lastmod>
   </url>
   <url>
-    <loc>https://frankalcantara.com/RobotZero.pdf</loc>
-    <lastmod>2024-12-01T20:39:28.912Z</lastmod>
+    <loc>https://frankalcantara.com/optLineFollower1.html</loc>
+    <lastmod>2025-11-05T14:11:38.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://frankalcantara.com/references.html</loc>
+    <lastmod>2024-11-24T00:23:51.762Z</lastmod>
   </url>
 </urlset>

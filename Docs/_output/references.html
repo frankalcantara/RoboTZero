@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RobotZero - 3&nbsp; RobotZero Modules Description</title>
+<title>RobotZero - References</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./config_layer.html" rel="next">
-<link href="./oper.html" rel="prev">
+<link href="./optLineFollower1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,11 +91,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="RobotZero - 3&nbsp; RobotZero Modules Description">
-<meta property="og:description" content="">
+<meta property="og:title" content="RobotZero - References">
 <meta property="og:site_name" content="RobotZero">
-<meta name="twitter:title" content="RobotZero - 3&nbsp; RobotZero Modules Description">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="RobotZero - References">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -90,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./block.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -107,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">RobotZero</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/frankalcantara/linefollower" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/frankalcantara/RoboTZero" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -122,42 +138,82 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Line Follower</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oper.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./block.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
+  <a href="./block.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./config_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./testing_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Line Follower Simulator</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./archSim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./optLineFollower1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -167,46 +223,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#configuration-layer" id="toc-configuration-layer" class="nav-link active" data-scroll-target="#configuration-layer"><span class="header-section-number">3.1</span> Configuration Layer</a>
-  <ul class="collapse">
-  <li><a href="#config.h" id="toc-config.h" class="nav-link" data-scroll-target="#config.h"><span class="header-section-number">3.1.1</span> config.h</a></li>
-  <li><a href="#globals.h" id="toc-globals.h" class="nav-link" data-scroll-target="#globals.h"><span class="header-section-number">3.1.2</span> globals.h</a></li>
-  <li><a href="#debug.h" id="toc-debug.h" class="nav-link" data-scroll-target="#debug.h"><span class="header-section-number">3.1.3</span> debug.h</a></li>
-  </ul></li>
-  <li><a href="#hardware-interface-layer" id="toc-hardware-interface-layer" class="nav-link" data-scroll-target="#hardware-interface-layer"><span class="header-section-number">3.2</span> Hardware Interface Layer</a>
-  <ul class="collapse">
-  <li><a href="#sensors" id="toc-sensors" class="nav-link" data-scroll-target="#sensors"><span class="header-section-number">3.2.1</span> Sensors</a></li>
-  <li><a href="#motorsdrivers" id="toc-motorsdrivers" class="nav-link" data-scroll-target="#motorsdrivers"><span class="header-section-number">3.2.2</span> MotorsDrivers</a></li>
-  <li><a href="#peripherals" id="toc-peripherals" class="nav-link" data-scroll-target="#peripherals"><span class="header-section-number">3.2.3</span> Peripherals</a></li>
-  </ul></li>
-  <li><a href="#control-layer" id="toc-control-layer" class="nav-link" data-scroll-target="#control-layer"><span class="header-section-number">3.3</span> Control Layer</a></li>
-  <li><a href="#coursemarkers" id="toc-coursemarkers" class="nav-link" data-scroll-target="#coursemarkers"><span class="header-section-number">4</span> CourseMarkers</a>
-  <ul class="collapse">
-  <li><a href="#profilemanager" id="toc-profilemanager" class="nav-link" data-scroll-target="#profilemanager"><span class="header-section-number">4.0.1</span> ProfileManager</a></li>
-  <li><a href="#debug-layer" id="toc-debug-layer" class="nav-link" data-scroll-target="#debug-layer"><span class="header-section-number">4.1</span> Debug Layer</a>
-  <ul class="collapse">
-  <li><a href="#logger" id="toc-logger" class="nav-link" data-scroll-target="#logger"><span class="header-section-number">4.1.1</span> Logger</a></li>
-  <li><a href="#flashmanager" id="toc-flashmanager" class="nav-link" data-scroll-target="#flashmanager"><span class="header-section-number">4.1.2</span> FlashManager</a></li>
-  <li><a href="#flashreader" id="toc-flashreader" class="nav-link" data-scroll-target="#flashreader"><span class="header-section-number">4.1.3</span> FlashReader</a></li>
-  </ul></li>
-  <li><a href="#main-control" id="toc-main-control" class="nav-link" data-scroll-target="#main-control"><span class="header-section-number">4.2</span> Main Control</a>
-  <ul class="collapse">
-  <li><a href="#main.cpp" id="toc-main.cpp" class="nav-link" data-scroll-target="#main.cpp"><span class="header-section-number">4.2.1</span> main.cpp</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/linefollower/edit/main/block.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/linefollower/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -223,79 +247,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>As shown in Figure 1, RobotZero’s architecture is organized into distinct layers, each responsible for specific aspects of the robot’s operation.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/blockDiag.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 1: RobotZero’s Block Diagram</figcaption>
-</figure>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ArduinoNano" class="csl-entry" role="listitem">
+Arduino. 2024. <span>“Arduino Nano (@ArduinoNano).”</span> 2024. <a href="https://docs.arduino.cc/hardware/nano/">https://docs.arduino.cc/hardware/nano/</a>.
 </div>
-<p>Let’s examine each module and its key features:</p>
-<section id="configuration-layer" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="configuration-layer"><span class="header-section-number">3.1</span> Configuration Layer</h2>
-<section id="config.h" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="config.h"><span class="header-section-number">3.1.1</span> config.h</h3>
-<p>The configuration hub of the system, this module defines all crucial parameters including pin assignments, speed settings, and control constants. A notable feature is its use of conditional compilation (<code>#if DEBUG_LEVEL &gt; 0</code>) to ensure zero overhead in normal operation mode, demonstrating our commitment to efficiency.</p>
-</section>
-<section id="globals.h" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="globals.h"><span class="header-section-number">3.1.2</span> globals.h</h3>
-<p>Manages global state variables that need to be accessed across different modules. While global variables are generally discouraged, here they serve a crucial role in maintaining real-time performance by avoiding function call overhead for frequently accessed states.</p>
-</section>
-<section id="debug.h" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="debug.h"><span class="header-section-number">3.1.3</span> debug.h</h3>
-<p>Implements a debug message system that stores strings in Flash memory instead of RAM, using <code>PROGMEM</code> for optimal memory usage. This approach ensures that debug capabilities don’t impact the robot’s limited RAM resources.</p>
-</section>
-</section>
-<section id="hardware-interface-layer" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="hardware-interface-layer"><span class="header-section-number">3.2</span> Hardware Interface Layer</h2>
-<section id="sensors" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="sensors"><span class="header-section-number">3.2.1</span> Sensors</h3>
-<p>Manages six line sensors and two marker sensors through a calibration-based approach. The unique feature here is the weighted average calculation that provides precise positional data. The system maintains both raw and processed values, enabling real-time adjustments while preserving original readings for analysis.</p>
-</section>
-<section id="motorsdrivers" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="motorsdrivers"><span class="header-section-number">3.2.2</span> MotorsDrivers</h3>
-<p>Implements motor control using PWM, with a key feature being its ability to handle both forward and reverse motion through a single interface. The module includes built-in protection against invalid PWM values, ensuring safe operation even under software errors.</p>
-</section>
-<section id="peripherals" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="peripherals"><span class="header-section-number">3.2.3</span> Peripherals</h3>
-<p>Handles external interfaces including button input and LED status indication. Notable is its debounce implementation that maintains responsiveness while ensuring reliable button detection, essential for both operation and calibration phases.</p>
-</section>
-</section>
-<section id="control-layer" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="control-layer"><span class="header-section-number">3.3</span> Control Layer</h2>
-</section>
-<section id="coursemarkers" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> CourseMarkers</h1>
-<p>The CourseMarkers class manages track feature detection and the robot’s behaviour responses. A key innovation is its time-controlled marker detection system, using a fixed interval (<code>MARKER_READ_INTERVAL</code>) to optimize sensor readings. The class implements an efficient state machine that processes four distinct states (<code>0-3</code>) representing different marker combinations. Its detection system includes timing controls to ensure reliable operation while minimizing processing overhead.</p>
-<section id="profilemanager" class="level3" data-number="4.0.1">
-<h3 data-number="4.0.1" class="anchored" data-anchor-id="profilemanager"><span class="header-section-number">4.0.1</span> ProfileManager</h3>
-<p>Manages different operation profiles (analysis and speed modes). The key innovation here is its transparent speed value translation system, which allows the same base code to operate under different performance parameters without modification.</p>
-</section>
-<section id="debug-layer" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="debug-layer"><span class="header-section-number">4.1</span> Debug Layer</h2>
-<section id="logger" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="logger"><span class="header-section-number">4.1.1</span> Logger</h3>
-<p>Implements a logging system using circular buffers to maintain performance. A key feature is its ability to write to flash memory only during straight-line sections, ensuring logging doesn’t interfere with critical control operations.</p>
-</section>
-<section id="flashmanager" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="flashmanager"><span class="header-section-number">4.1.2</span> FlashManager</h3>
-<p>Handles flash memory operations with built-in error checking and recovery mechanisms. Notable is its page-aligned writing system that maximizes flash memory lifespan while ensuring data integrity.</p>
-</section>
-<section id="flashreader" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="flashreader"><span class="header-section-number">4.1.3</span> FlashReader</h3>
-<p>Manages data retrieval through a structured protocol, including checksums for data validation. The module implements a multi-marker system to ensure reliable data transmission even under noisy serial connections.</p>
-</section>
-</section>
-<section id="main-control" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="main-control"><span class="header-section-number">4.2</span> Main Control</h2>
-<section id="main.cpp" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="main.cpp"><span class="header-section-number">4.2.1</span> main.cpp</h3>
-<p>The core control loop implementing PID-based line following. A significant feature is its non-blocking setup sequence that maintains system responsiveness during initialization and calibration. The module seamlessly integrates debug features when compiled with DEBUG_LEVEL &gt; 0 while maintaining optimal performance in normal operation.</p>
+</div>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -853,14 +811,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./oper.html" class="pagination-link" aria-label="Line Following Robot Operation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span>
+      <a href="./optLineFollower1.html" class="pagination-link" aria-label="Optimization Methods for Line Follower Simulation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./config_layer.html" class="pagination-link" aria-label="Configuration Layer">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -871,7 +826,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright © 2024 Frank de Alcantara</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/frankalcantara/linefollower/edit/main/block.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/linefollower/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/references.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
