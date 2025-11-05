@@ -350,6 +350,39 @@
     ]
   },
   {
+    "objectID": "introLineFollower.html",
+    "href": "introLineFollower.html",
+    "title": "3  Introduction Follower",
+    "section": "",
+    "text": "3.1 The Platform: Arduino Nano\nFor the first version, this project, we chose the Arduino Nano (Arduino 2024) as our main controller specifically for its constrained environment. When we can achieve efficiency and speed within such limitations, we learn how to optimize ideas, algorithms, and programs - skills that are valuable across all computing platforms. The Arduino Nano (Arduino 2024), based on the ATmega328P microcontroller, (Microchip Technology 2024), offers a small form factor (45 x 18 mm), ideal for compact robot designs. It includes 32KB of Flash memory, suitable for our advanced logging system, 2KB of SRAM for runtime operations, and runs at 16MHz, providing adequate processing power. The board features multiple analog inputs for our sensor array, PWM outputs for precise motor control, and maintains low power consumption while being cost-effective for both prototyping and final implementation.",
+    "crumbs": [
+      "Line Follower",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction Follower</span>"
+    ]
+  },
+  {
+    "objectID": "introLineFollower.html#project-overview",
+    "href": "introLineFollower.html#project-overview",
+    "title": "3  Introduction Follower",
+    "section": "3.2 Project Overview",
+    "text": "3.2 Project Overview\nIn most projects, adjusting a line following robot for speed and efficiency becomes a tedious and time-consuming trial-and-error routine. We have observed this adjustment procedure in some competitions and during hundreds of hours of videos on YouTube. Our project addresses this challenge by incorporating an advanced logging and analysis system that transforms the tuning process into a data-driven approach. The robot includes high-precision line detection using a 6-sensor array, PID-based motion control for smooth operation, and dual operating modes for analysis and high-speed performance. The comprehensive data logging system enables real-time performance monitoring, with flash-based storage for post-run analysis and a USB interface for data retrieval and analysis, providing the tools necessary for systematic testing and configuration.",
+    "crumbs": [
+      "Line Follower",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction Follower</span>"
+    ]
+  },
+  {
+    "objectID": "introLineFollower.html#why-c",
+    "href": "introLineFollower.html#why-c",
+    "title": "3  Introduction Follower",
+    "section": "3.3 Why C++?",
+    "text": "3.3 Why C++?\nThe choice of C++ as our programming language was deliberate and based on several key factors. C++ allows us to organize our code into logical classes and modules, making the system more maintainable and easier to understand. This is particularly important for complex systems like our logging mechanism. The language provides low-level hardware access while supporting high-level abstractions, crucial for real-time operations where microseconds matter, such as sensor reading and motor control.\nWith limited resources on the Arduino Nano (Arduino 2024), C++’s efficient memory management and minimal runtime overhead are essential. We can precisely control memory allocation and ensure optimal use of the available RAM. The language’s support for namespaces, classes, and templates helps maintain clean code architecture despite the system’s complexity. C++’s strong type system helps catch errors at compile-time rather than runtime, which is crucial for a system that needs to operate autonomously. Additionally, C++ allows us to create clean abstractions over hardware components while maintaining direct access when needed, making the code both maintainable and efficient. The object-oriented features facilitate code reuse and modular design, making it easier to extend or modify the robot’s functionality.\nThe combination of Arduino Nano (Arduino 2024)’s capabilities with C++’s features allows us to create a line following robot that not only performs its primary function but also provides valuable insights into its operation through advanced logging and analysis capabilities.\n\n\n\n\nArduino. 2024. “Arduino Nano (@ArduinoNano).” 2024. https://docs.arduino.cc/hardware/nano/.\n\n\nMicrochip Technology. 2024. ATmega328P – Microcontroladores AVR de 8 Bits – Datasheet. https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf.",
+    "crumbs": [
+      "Line Follower",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction Follower</span>"
+    ]
+  },
+  {
     "objectID": "oper.html",
     "href": "oper.html",
     "title": "4  Line Following Robot Operation",
@@ -827,7 +860,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Arduino. 2024. “Arduino Nano (@ArduinoNano).” 2024. https://docs.arduino.cc/hardware/nano/.",
+    "text": "Arduino. 2024. “Arduino Nano (@ArduinoNano).” 2024. https://docs.arduino.cc/hardware/nano/.\n\n\nMicrochip Technology. 2024. ATmega328P – Microcontroladores AVR de 8\nBits – Datasheet. https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf.",
     "crumbs": [
       "References"
     ]

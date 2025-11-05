@@ -16,7 +16,7 @@ book:
     - installation-guide.qmd
     - part: Line Follower 
       chapters:
-        - index.qmd
+        - introLineFollower.qmd
         - oper.qmd
         - block.qmd
         - config_layer.qmd

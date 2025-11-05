@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RobotZero - 4&nbsp; Line Following Robot Operation</title>
+<title>RobotZero - 3&nbsp; Introduction Follower</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./block.html" rel="next">
-<link href="./introLineFollower.html" rel="prev">
+<link href="./oper.html" rel="next">
+<link href="./installation-guide.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,10 +93,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="RobotZero - 4&nbsp; Line Following Robot Operation">
+<meta property="og:title" content="RobotZero - 3&nbsp; Introduction Follower">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="RobotZero">
-<meta name="twitter:title" content="RobotZero - 4&nbsp; Line Following Robot Operation">
+<meta name="twitter:title" content="RobotZero - 3&nbsp; Introduction Follower">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -90,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introLineFollower.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./oper.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introLineFollower.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./introLineFollower.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction Follower</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -142,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introLineFollower.html" class="sidebar-item-text sidebar-link">
+  <a href="./introLineFollower.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction Follower</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./oper.html" class="sidebar-item-text sidebar-link active">
+  <a href="./oper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
   </div>
 </li>
@@ -217,26 +237,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#operating-procedure" id="toc-operating-procedure" class="nav-link active" data-scroll-target="#operating-procedure"><span class="header-section-number">4.1</span> Operating Procedure</a>
-  <ul class="collapse">
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup"><span class="header-section-number">4.1.1</span> Initial Setup</a></li>
-  <li><a href="#calibration-process" id="toc-calibration-process" class="nav-link" data-scroll-target="#calibration-process"><span class="header-section-number">4.1.2</span> Calibration Process</a></li>
-  <li><a href="#operation-start" id="toc-operation-start" class="nav-link" data-scroll-target="#operation-start"><span class="header-section-number">4.1.3</span> Operation Start</a></li>
-  <li><a href="#during-operation" id="toc-during-operation" class="nav-link" data-scroll-target="#during-operation"><span class="header-section-number">4.1.4</span> During Operation</a></li>
-  <li><a href="#stop-sequence" id="toc-stop-sequence" class="nav-link" data-scroll-target="#stop-sequence"><span class="header-section-number">4.1.5</span> Stop Sequence</a></li>
-  <li><a href="#data-retrieval-debug-mode-only" id="toc-data-retrieval-debug-mode-only" class="nav-link" data-scroll-target="#data-retrieval-debug-mode-only"><span class="header-section-number">4.1.6</span> Data Retrieval (Debug Mode Only)</a></li>
-  <li><a href="#error-recovery" id="toc-error-recovery" class="nav-link" data-scroll-target="#error-recovery"><span class="header-section-number">4.1.7</span> Error Recovery</a></li>
-  <li><a href="#operating-modes" id="toc-operating-modes" class="nav-link" data-scroll-target="#operating-modes"><span class="header-section-number">4.1.8</span> Operating Modes</a></li>
-  </ul></li>
+  <li><a href="#the-platform-arduino-nano" id="toc-the-platform-arduino-nano" class="nav-link active" data-scroll-target="#the-platform-arduino-nano"><span class="header-section-number">3.1</span> The Platform: Arduino Nano</a></li>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link" data-scroll-target="#project-overview"><span class="header-section-number">3.2</span> Project Overview</a></li>
+  <li><a href="#why-c" id="toc-why-c" class="nav-link" data-scroll-target="#why-c"><span class="header-section-number">3.3</span> Why C++?</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/introLineFollower.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introLineFollower.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./oper.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./introLineFollower.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./introLineFollower.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction Follower</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction Follower</span></h1>
 </div>
 
 
@@ -253,109 +265,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The robot’s operation is divided into two distinct configuration levels: build-time configuration through software compilation and runtime operation of RoboZero.</p>
-<p>At build time, critical parameters are set through compilation flags and constants. The DEBUG_LEVEL flag determines the robot’s operational mode: normal operation (0), analysis mode (1), or speed mode (2). Each mode compiles with different features and behaviors. Other build-time configurations include PID default constants, sensor weights, speed profiles, and timing parameters. These decisions fundamentally shape the robot’s behavior and available features.</p>
-<p>During runtime operation, the robot’s functioning begins with a calibration phase, essential for adapting to varying lighting conditions and surface characteristics. Upon powering up, the robot waits for the first button press, which initiates the calibration sequence. During calibration, the robot samples each of its six line sensors multiple times, establishing minimum and maximum values for each sensor. These values create a baseline for converting raw sensor readings into meaningful position data.</p>
-<p>After calibration, the robot waits for a second button press to begin its line following operation. The six-sensor array continuously reads the line position, with the outer sensors serving as markers for extreme deviations and the inner sensors providing precise positioning data. Each sensor reading is normalized using the calibration data and weighted based on its position in the array. The weighted average of these readings determines the robot’s position relative to the line.</p>
-<p>The control system operates on a continuous loop, processing sensor data and adjusting motor outputs. A PID (Proportional-Integral-Derivative) controller calculates the necessary corrections based on the line position error - the difference between the current position and the desired center position. The proportional component provides immediate response to position errors, while the derivative component helps predict and dampen oscillations, resulting in smooth motion.</p>
-<p>Speed control is managed dynamically based on the current situation. In straight sections, the robot can maintain higher speeds, while curves require speed adjustment for stability. The system includes a boost mechanism that temporarily increases speed when exiting curves to optimize lap times. The operating mode, determined at build time, affects the available speed ranges and control parameters.</p>
-<p>Course markers on the track trigger specific behaviors. The robot can detect intersections, lap markers, and mode-change markers using dedicated marker sensors. When passing over these markers, the robot adjusts its operation accordingly - counting laps, changing speeds, or preparing to stop. The system is designed to complete a configurable number of laps before automatically stopping.</p>
-<p>If compiled with debugging enabled (DEBUG_LEVEL &gt; 0), the logging system operates continuously during the robot’s operation. In analysis mode, it captures detailed performance data including line position, error values, motor speeds, and PID corrections. This data is temporarily stored in circular buffers and written to flash memory when safe conditions are met - typically during straight sections where precise control is less critical. The system also records significant events such as marker detections, mode changes, and lap completions.</p>
-<p>When the programmed number of laps is completed, the robot enters its stopping sequence. It gradually reduces speed to ensure controlled deceleration and precise stopping. After stopping, if debugging is enabled, the collected performance data remains stored in flash memory, ready for retrieval and analysis.</p>
-<p>Data retrieval, available only in debug builds, occurs through a USB interface when the robot is stationary. Upon receiving the appropriate command through the serial interface, the robot transmits its stored data in a structured format, including session headers, performance records, event logs, and lap statistics. This data can then be analyzed to optimize the robot’s parameters such as PID constants, speed profiles, and acceleration rates.</p>
-<p>The entire system prioritizes real-time performance while ensuring data collection doesn’t interfere with the robot’s primary line-following function. Error checking and recovery mechanisms are implemented throughout the system, from sensor reading validation to data storage verification, ensuring reliable operation even under challenging conditions.</p>
-<section id="operating-procedure" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="operating-procedure"><span class="header-section-number">4.1</span> Operating Procedure</h2>
-<section id="initial-setup" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="initial-setup"><span class="header-section-number">4.1.1</span> Initial Setup</h3>
-<ol type="1">
-<li>Place the robot near the course</li>
-<li>Power on the robot</li>
-<li>Wait for initial setup delay (<code>600ms</code>)
-<ul>
-<li>Status LED will be on during this period</li>
-<li>Motors will be inactive</li>
-</ul></li>
-<li>After delay, LED turns off and robot is ready for calibration</li>
-</ol>
+<p>A line following robot is an autonomous system designed to follow a path marked by a line on the ground. These robots are often considered an entry point into robotics and automation, as they incorporate fundamental concepts of sensor reading, motor control, and real-time decision making. However, while the basic concept might seem simple, developing a high-performance line follower requires control systems, real-time control, speed, acceleration, and jerk management, performance analysis, and the definition and fine-tuning of a PID controller, all of which demand precise calibration.</p>
+<p>Named <strong>RobotZero</strong>, this project embodies the concept of starting from zero - both for those beginning their journey in robotics and in homage to DeepMind’s AlphaGo Zero. Like its namesake, which learned chess and Go from scratch, achieving mastery through self-play and analysis, RoboTZero is designed to be a foundation for learning through systematic data collection and analysis. Despite its diminutive size and seemingly simple purpose, the robot incorporates logging and analysis capabilities that transform it from a basic line follower into a platform for understanding robotics fundamentals, control systems, and performance optimization. It represents “zero” not as nothing, but as the essential starting point for building knowledge and expertise in robotics.</p>
+<section id="the-platform-arduino-nano" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-platform-arduino-nano"><span class="header-section-number">3.1</span> The Platform: Arduino Nano</h2>
+<p>For the first version, this project, we chose the Arduino Nano <span class="citation" data-cites="ArduinoNano">(<a href="references.html#ref-ArduinoNano" role="doc-biblioref">Arduino 2024</a>)</span> as our main controller specifically for its constrained environment. When we can achieve efficiency and speed within such limitations, we learn how to optimize ideas, algorithms, and programs - skills that are valuable across all computing platforms. The Arduino Nano <span class="citation" data-cites="ArduinoNano">(<a href="references.html#ref-ArduinoNano" role="doc-biblioref">Arduino 2024</a>)</span>, based on the ATmega328P microcontroller, <span class="citation" data-cites="Microchip_ATmega328P">(<a href="references.html#ref-Microchip_ATmega328P" role="doc-biblioref">Microchip Technology 2024</a>)</span>, offers a small form factor (45 x 18 mm), ideal for compact robot designs. It includes 32KB of Flash memory, suitable for our advanced logging system, 2KB of SRAM for runtime operations, and runs at 16MHz, providing adequate processing power. The board features multiple analog inputs for our sensor array, PWM outputs for precise motor control, and maintains low power consumption while being cost-effective for both prototyping and final implementation.</p>
 </section>
-<section id="calibration-process" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="calibration-process"><span class="header-section-number">4.1.2</span> Calibration Process</h3>
-<ol type="1">
-<li>Press the start button for first calibration phase
-<ul>
-<li>LED will turn on</li>
-</ul></li>
-<li>The calibration process:
-<ul>
-<li>Takes 400 samples from each sensor</li>
-<li>30ms delay between samples (total ~12 seconds)</li>
-<li>Establishes minimum and maximum values for each sensor</li>
-</ul></li>
-<li>After calibration completes:
-<ul>
-<li>LED turns off</li>
-<li>Robot waits for second button press</li>
-</ul></li>
-</ol>
+<section id="project-overview" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="project-overview"><span class="header-section-number">3.2</span> Project Overview</h2>
+<p>In most projects, adjusting a line following robot for speed and efficiency becomes a tedious and time-consuming trial-and-error routine. We have observed this adjustment procedure in some competitions and during hundreds of hours of videos on YouTube. Our project addresses this challenge by incorporating an advanced logging and analysis system that transforms the tuning process into a data-driven approach. The robot includes high-precision line detection using a 6-sensor array, PID-based motion control for smooth operation, and dual operating modes for analysis and high-speed performance. The comprehensive data logging system enables real-time performance monitoring, with flash-based storage for post-run analysis and a USB interface for data retrieval and analysis, providing the tools necessary for systematic testing and configuration.</p>
 </section>
-<section id="operation-start" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="operation-start"><span class="header-section-number">4.1.3</span> Operation Start</h3>
-<ol type="1">
-<li>Place robot on the track</li>
-<li>Press start button again to begin operation
-<ul>
-<li>LED turns on</li>
-<li>Robot starts line following operation</li>
-</ul></li>
-<li>Initial operating parameters:
-<ul>
-<li>Speed mode begins at BASE_FAST (115)</li>
-<li>PID control active with default parameters</li>
-<li>Normal operating mode engaged</li>
-</ul></li>
-</ol>
-</section>
-<section id="during-operation" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="during-operation"><span class="header-section-number">4.1.4</span> During Operation</h3>
-<p>The robot recognizes three marker patterns: 1. Finish line marker (both sensors) - Updates lap count - Triggers stop sequence on second detection 2. Speed mode marker (left sensor only) - Toggles between normal and precision mode - In precision mode: SPEED_SLOW - In normal mode: BASE_FAST 3. Intersection marker (both sensors) - Logged but no special action taken</p>
-</section>
-<section id="stop-sequence" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="stop-sequence"><span class="header-section-number">4.1.5</span> Stop Sequence</h3>
-<p>The robot will stop automatically when: 1. Second finish line is detected 2. Stop sequence activates: - Speed reduces to SPEED_BRAKE - After 50ms deceleration - Final stop after 300ms - Motors power off</p>
-</section>
-<section id="data-retrieval-debug-mode-only" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="data-retrieval-debug-mode-only"><span class="header-section-number">4.1.6</span> Data Retrieval (Debug Mode Only)</h3>
-<p>If DEBUG_LEVEL &gt; 0: 1. When robot stops, flash memory is marked as ready 2. LED displays transmission pattern: - Alternates between slow blink (1000ms) and fast blink (300ms) - Pattern switches every 3000ms 3. Data can be retrieved through serial interface 4. After successful transmission: - Log ready flag is cleared - LED pattern stops</p>
-</section>
-<section id="error-recovery" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="error-recovery"><span class="header-section-number">4.1.7</span> Error Recovery</h3>
-<p>If line is lost: 1. Robot uses last valid position 2. Position is forced to extreme (-100 or 100) based on last direction 3. PID controller attempts to recover 4. Robot continues operation if line is found</p>
-</section>
-<section id="operating-modes" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="operating-modes"><span class="header-section-number">4.1.8</span> Operating Modes</h3>
-<p>Two base operating speeds: 1. Normal Mode (BASE_FAST): - Base speed of 115 - Curve speed reduction active - Boost after curves (if not in precision mode)</p>
-<ol start="2" type="1">
-<li>Precision Mode:
-<ul>
-<li>Activated by left marker</li>
-<li>Uses SPEED_SLOW</li>
-<li>Disables boost feature</li>
-<li>More conservative operation</li>
-</ul></li>
-</ol>
-<p>Debug Operating Modes (if DEBUG_LEVEL &gt; 0): 1. Analysis Mode (DEBUG_LEVEL = 1): - 5 laps - Conservative speeds - Full data logging</p>
-<ol start="2" type="1">
-<li>Speed Mode (DEBUG_LEVEL = 2):
-<ul>
-<li>3 laps</li>
-<li>Maximum performance</li>
-<li>Full data logging</li>
-</ul></li>
-</ol>
+<section id="why-c" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="why-c"><span class="header-section-number">3.3</span> Why C++?</h2>
+<p>The choice of C++ as our programming language was deliberate and based on several key factors. C++ allows us to organize our code into logical classes and modules, making the system more maintainable and easier to understand. This is particularly important for complex systems like our logging mechanism. The language provides low-level hardware access while supporting high-level abstractions, crucial for real-time operations where microseconds matter, such as sensor reading and motor control.</p>
+<p>With limited resources on the Arduino Nano <span class="citation" data-cites="ArduinoNano">(<a href="references.html#ref-ArduinoNano" role="doc-biblioref">Arduino 2024</a>)</span>, C++’s efficient memory management and minimal runtime overhead are essential. We can precisely control memory allocation and ensure optimal use of the available RAM. The language’s support for namespaces, classes, and templates helps maintain clean code architecture despite the system’s complexity. C++’s strong type system helps catch errors at compile-time rather than runtime, which is crucial for a system that needs to operate autonomously. Additionally, C++ allows us to create clean abstractions over hardware components while maintaining direct access when needed, making the code both maintainable and efficient. The object-oriented features facilitate code reuse and modular design, making it easier to extend or modify the robot’s functionality.</p>
+<p>The combination of Arduino Nano <span class="citation" data-cites="ArduinoNano">(<a href="references.html#ref-ArduinoNano" role="doc-biblioref">Arduino 2024</a>)</span>’s capabilities with C++’s features allows us to create a line following robot that not only performs its primary function but also provides valuable insights into its operation through advanced logging and analysis capabilities.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ArduinoNano" class="csl-entry" role="listitem">
+Arduino. 2024. <span>“Arduino Nano (@ArduinoNano).”</span> 2024. <a href="https://docs.arduino.cc/hardware/nano/">https://docs.arduino.cc/hardware/nano/</a>.
+</div>
+<div id="ref-Microchip_ATmega328P" class="csl-entry" role="listitem">
+Microchip Technology. 2024. <em>ATmega328P – Microcontroladores AVR de 8 Bits – Datasheet</em>. <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -914,13 +848,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./introLineFollower.html" class="pagination-link" aria-label="Introduction Follower">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction Follower</span></span>
+      <a href="./installation-guide.html" class="pagination-link" aria-label="Development Environment Installation Guide">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Development Environment Installation Guide</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./block.html" class="pagination-link" aria-label="RobotZero Modules Description">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./oper.html" class="pagination-link" aria-label="Line Following Robot Operation">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -932,7 +866,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright © 2024 Frank de Alcantara</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/oper.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/introLineFollower.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
