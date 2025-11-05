@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RobotZero - 8&nbsp; Line Follower Simulator Architecture</title>
+<title>RobotZero - 9&nbsp; Line Follower Simulator Architecture</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="RobotZero - 8&nbsp; Line Follower Simulator Architecture">
+<meta property="og:title" content="RobotZero - 9&nbsp; Line Follower Simulator Architecture">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="RobotZero">
-<meta name="twitter:title" content="RobotZero - 8&nbsp; Line Follower Simulator Architecture">
+<meta name="twitter:title" content="RobotZero - 9&nbsp; Line Follower Simulator Architecture">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./archSim.html">Line Follower Simulator</a></li><li class="breadcrumb-item"><a href="./archSim.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./archSim.html">Line Follower Simulator</a></li><li class="breadcrumb-item"><a href="./archSim.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,6 +159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Development Environment Installation Guide</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -177,31 +183,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oper.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./block.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./config_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./testing_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
   </div>
 </li>
       </ul>
@@ -218,13 +224,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./archSim.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./optLineFollower1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
   </div>
 </li>
       </ul>
@@ -245,58 +251,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">8.1</span> Overview</a></li>
-  <li><a href="#project-objectives" id="toc-project-objectives" class="nav-link" data-scroll-target="#project-objectives"><span class="header-section-number">8.2</span> Project Objectives</a></li>
-  <li><a href="#three-layer-architecture" id="toc-three-layer-architecture" class="nav-link" data-scroll-target="#three-layer-architecture"><span class="header-section-number">8.3</span> Three-Layer Architecture</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">9.1</span> Overview</a></li>
+  <li><a href="#project-objectives" id="toc-project-objectives" class="nav-link" data-scroll-target="#project-objectives"><span class="header-section-number">9.2</span> Project Objectives</a></li>
+  <li><a href="#three-layer-architecture" id="toc-three-layer-architecture" class="nav-link" data-scroll-target="#three-layer-architecture"><span class="header-section-number">9.3</span> Three-Layer Architecture</a>
   <ul class="collapse">
-  <li><a href="#layer-1-user-interface" id="toc-layer-1-user-interface" class="nav-link" data-scroll-target="#layer-1-user-interface"><span class="header-section-number">8.3.1</span> Layer 1: User Interface</a></li>
-  <li><a href="#layer-2-simulation-and-optimization" id="toc-layer-2-simulation-and-optimization" class="nav-link" data-scroll-target="#layer-2-simulation-and-optimization"><span class="header-section-number">8.3.2</span> Layer 2: Simulation and Optimization</a></li>
-  <li><a href="#layer-3-3d-visualization" id="toc-layer-3-3d-visualization" class="nav-link" data-scroll-target="#layer-3-3d-visualization"><span class="header-section-number">8.3.3</span> Layer 3: 3D Visualization</a></li>
+  <li><a href="#layer-1-user-interface" id="toc-layer-1-user-interface" class="nav-link" data-scroll-target="#layer-1-user-interface"><span class="header-section-number">9.3.1</span> Layer 1: User Interface</a></li>
+  <li><a href="#layer-2-simulation-and-optimization" id="toc-layer-2-simulation-and-optimization" class="nav-link" data-scroll-target="#layer-2-simulation-and-optimization"><span class="header-section-number">9.3.2</span> Layer 2: Simulation and Optimization</a></li>
+  <li><a href="#layer-3-3d-visualization" id="toc-layer-3-3d-visualization" class="nav-link" data-scroll-target="#layer-3-3d-visualization"><span class="header-section-number">9.3.3</span> Layer 3: 3D Visualization</a></li>
   </ul></li>
-  <li><a href="#communication-between-components" id="toc-communication-between-components" class="nav-link" data-scroll-target="#communication-between-components"><span class="header-section-number">8.4</span> Communication Between Components</a>
+  <li><a href="#communication-between-components" id="toc-communication-between-components" class="nav-link" data-scroll-target="#communication-between-components"><span class="header-section-number">9.4</span> Communication Between Components</a>
   <ul class="collapse">
-  <li><a href="#javascript-webassembly-binding" id="toc-javascript-webassembly-binding" class="nav-link" data-scroll-target="#javascript-webassembly-binding"><span class="header-section-number">8.4.1</span> JavaScript ↔︎ WebAssembly Binding</a></li>
-  <li><a href="#asynchronous-execution" id="toc-asynchronous-execution" class="nav-link" data-scroll-target="#asynchronous-execution"><span class="header-section-number">8.4.2</span> Asynchronous Execution</a></li>
+  <li><a href="#javascript-webassembly-binding" id="toc-javascript-webassembly-binding" class="nav-link" data-scroll-target="#javascript-webassembly-binding"><span class="header-section-number">9.4.1</span> JavaScript ↔︎ WebAssembly Binding</a></li>
+  <li><a href="#asynchronous-execution" id="toc-asynchronous-execution" class="nav-link" data-scroll-target="#asynchronous-execution"><span class="header-section-number">9.4.2</span> Asynchronous Execution</a></li>
   </ul></li>
-  <li><a href="#persistence-and-sharing" id="toc-persistence-and-sharing" class="nav-link" data-scroll-target="#persistence-and-sharing"><span class="header-section-number">8.5</span> Persistence and Sharing</a>
+  <li><a href="#persistence-and-sharing" id="toc-persistence-and-sharing" class="nav-link" data-scroll-target="#persistence-and-sharing"><span class="header-section-number">9.5</span> Persistence and Sharing</a>
   <ul class="collapse">
-  <li><a href="#local-storage" id="toc-local-storage" class="nav-link" data-scroll-target="#local-storage"><span class="header-section-number">8.5.1</span> Local Storage</a></li>
-  <li><a href="#file-format" id="toc-file-format" class="nav-link" data-scroll-target="#file-format"><span class="header-section-number">8.5.2</span> File Format</a></li>
-  <li><a href="#url-sharing" id="toc-url-sharing" class="nav-link" data-scroll-target="#url-sharing"><span class="header-section-number">8.5.3</span> URL Sharing</a></li>
+  <li><a href="#local-storage" id="toc-local-storage" class="nav-link" data-scroll-target="#local-storage"><span class="header-section-number">9.5.1</span> Local Storage</a></li>
+  <li><a href="#file-format" id="toc-file-format" class="nav-link" data-scroll-target="#file-format"><span class="header-section-number">9.5.2</span> File Format</a></li>
+  <li><a href="#url-sharing" id="toc-url-sharing" class="nav-link" data-scroll-target="#url-sharing"><span class="header-section-number">9.5.3</span> URL Sharing</a></li>
   </ul></li>
-  <li><a href="#complete-technology-stack" id="toc-complete-technology-stack" class="nav-link" data-scroll-target="#complete-technology-stack"><span class="header-section-number">8.6</span> Complete Technology Stack</a>
+  <li><a href="#complete-technology-stack" id="toc-complete-technology-stack" class="nav-link" data-scroll-target="#complete-technology-stack"><span class="header-section-number">9.6</span> Complete Technology Stack</a>
   <ul class="collapse">
-  <li><a href="#frontend" id="toc-frontend" class="nav-link" data-scroll-target="#frontend"><span class="header-section-number">8.6.1</span> Frontend</a></li>
-  <li><a href="#core-engine" id="toc-core-engine" class="nav-link" data-scroll-target="#core-engine"><span class="header-section-number">8.6.2</span> Core Engine</a></li>
-  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">8.6.3</span> Deployment</a></li>
+  <li><a href="#frontend" id="toc-frontend" class="nav-link" data-scroll-target="#frontend"><span class="header-section-number">9.6.1</span> Frontend</a></li>
+  <li><a href="#core-engine" id="toc-core-engine" class="nav-link" data-scroll-target="#core-engine"><span class="header-section-number">9.6.2</span> Core Engine</a></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">9.6.3</span> Deployment</a></li>
   </ul></li>
-  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure"><span class="header-section-number">8.7</span> Directory Structure</a></li>
-  <li><a href="#development-plan-in-phases" id="toc-development-plan-in-phases" class="nav-link" data-scroll-target="#development-plan-in-phases"><span class="header-section-number">8.8</span> Development Plan in Phases</a>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure"><span class="header-section-number">9.7</span> Directory Structure</a></li>
+  <li><a href="#development-plan-in-phases" id="toc-development-plan-in-phases" class="nav-link" data-scroll-target="#development-plan-in-phases"><span class="header-section-number">9.8</span> Development Plan in Phases</a>
   <ul class="collapse">
-  <li><a href="#phase-1-foundation-and-basic-simulation" id="toc-phase-1-foundation-and-basic-simulation" class="nav-link" data-scroll-target="#phase-1-foundation-and-basic-simulation"><span class="header-section-number">8.8.1</span> Phase 1: Foundation and Basic Simulation</a></li>
-  <li><a href="#phase-2-artifact-based-optimization" id="toc-phase-2-artifact-based-optimization" class="nav-link" data-scroll-target="#phase-2-artifact-based-optimization"><span class="header-section-number">8.8.2</span> Phase 2: Artifact-Based Optimization</a></li>
-  <li><a href="#phase-3-arduino-emulation-future" id="toc-phase-3-arduino-emulation-future" class="nav-link" data-scroll-target="#phase-3-arduino-emulation-future"><span class="header-section-number">8.8.3</span> Phase 3: Arduino Emulation (Future)</a></li>
+  <li><a href="#phase-1-foundation-and-basic-simulation" id="toc-phase-1-foundation-and-basic-simulation" class="nav-link" data-scroll-target="#phase-1-foundation-and-basic-simulation"><span class="header-section-number">9.8.1</span> Phase 1: Foundation and Basic Simulation</a></li>
+  <li><a href="#phase-2-artifact-based-optimization" id="toc-phase-2-artifact-based-optimization" class="nav-link" data-scroll-target="#phase-2-artifact-based-optimization"><span class="header-section-number">9.8.2</span> Phase 2: Artifact-Based Optimization</a></li>
+  <li><a href="#phase-3-arduino-emulation-future" id="toc-phase-3-arduino-emulation-future" class="nav-link" data-scroll-target="#phase-3-arduino-emulation-future"><span class="header-section-number">9.8.3</span> Phase 3: Arduino Emulation (Future)</a></li>
   </ul></li>
-  <li><a href="#performance-considerations" id="toc-performance-considerations" class="nav-link" data-scroll-target="#performance-considerations"><span class="header-section-number">8.9</span> Performance Considerations</a>
+  <li><a href="#performance-considerations" id="toc-performance-considerations" class="nav-link" data-scroll-target="#performance-considerations"><span class="header-section-number">9.9</span> Performance Considerations</a>
   <ul class="collapse">
-  <li><a href="#performance-targets" id="toc-performance-targets" class="nav-link" data-scroll-target="#performance-targets"><span class="header-section-number">8.9.1</span> Performance Targets</a></li>
-  <li><a href="#planned-optimizations" id="toc-planned-optimizations" class="nav-link" data-scroll-target="#planned-optimizations"><span class="header-section-number">8.9.2</span> Planned Optimizations</a></li>
+  <li><a href="#performance-targets" id="toc-performance-targets" class="nav-link" data-scroll-target="#performance-targets"><span class="header-section-number">9.9.1</span> Performance Targets</a></li>
+  <li><a href="#planned-optimizations" id="toc-planned-optimizations" class="nav-link" data-scroll-target="#planned-optimizations"><span class="header-section-number">9.9.2</span> Planned Optimizations</a></li>
   </ul></li>
-  <li><a href="#testing-and-quality" id="toc-testing-and-quality" class="nav-link" data-scroll-target="#testing-and-quality"><span class="header-section-number">8.10</span> Testing and Quality</a>
+  <li><a href="#testing-and-quality" id="toc-testing-and-quality" class="nav-link" data-scroll-target="#testing-and-quality"><span class="header-section-number">9.10</span> Testing and Quality</a>
   <ul class="collapse">
-  <li><a href="#testing-strategy" id="toc-testing-strategy" class="nav-link" data-scroll-target="#testing-strategy"><span class="header-section-number">8.10.1</span> Testing Strategy</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">8.10.2</span> Tools</a></li>
+  <li><a href="#testing-strategy" id="toc-testing-strategy" class="nav-link" data-scroll-target="#testing-strategy"><span class="header-section-number">9.10.1</span> Testing Strategy</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">9.10.2</span> Tools</a></li>
   </ul></li>
-  <li><a href="#system-requirements" id="toc-system-requirements" class="nav-link" data-scroll-target="#system-requirements"><span class="header-section-number">8.11</span> System Requirements</a>
+  <li><a href="#system-requirements" id="toc-system-requirements" class="nav-link" data-scroll-target="#system-requirements"><span class="header-section-number">9.11</span> System Requirements</a>
   <ul class="collapse">
-  <li><a href="#supported-browsers" id="toc-supported-browsers" class="nav-link" data-scroll-target="#supported-browsers"><span class="header-section-number">8.11.1</span> Supported Browsers</a></li>
-  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link" data-scroll-target="#hardware-requirements"><span class="header-section-number">8.11.2</span> Hardware Requirements</a></li>
+  <li><a href="#supported-browsers" id="toc-supported-browsers" class="nav-link" data-scroll-target="#supported-browsers"><span class="header-section-number">9.11.1</span> Supported Browsers</a></li>
+  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link" data-scroll-target="#hardware-requirements"><span class="header-section-number">9.11.2</span> Hardware Requirements</a></li>
   </ul></li>
-  <li><a href="#licensing" id="toc-licensing" class="nav-link" data-scroll-target="#licensing"><span class="header-section-number">8.12</span> Licensing</a></li>
-  <li><a href="#technical-references" id="toc-technical-references" class="nav-link" data-scroll-target="#technical-references"><span class="header-section-number">8.13</span> Technical References</a>
+  <li><a href="#licensing" id="toc-licensing" class="nav-link" data-scroll-target="#licensing"><span class="header-section-number">9.12</span> Licensing</a></li>
+  <li><a href="#technical-references" id="toc-technical-references" class="nav-link" data-scroll-target="#technical-references"><span class="header-section-number">9.13</span> Technical References</a>
   <ul class="collapse">
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">8.13.1</span> Documentation</a></li>
-  <li><a href="#learning-resources" id="toc-learning-resources" class="nav-link" data-scroll-target="#learning-resources"><span class="header-section-number">8.13.2</span> Learning Resources</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">9.13.1</span> Documentation</a></li>
+  <li><a href="#learning-resources" id="toc-learning-resources" class="nav-link" data-scroll-target="#learning-resources"><span class="header-section-number">9.13.2</span> Learning Resources</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/archSim.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -304,9 +310,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./archSim.html">Line Follower Simulator</a></li><li class="breadcrumb-item"><a href="./archSim.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./archSim.html">Line Follower Simulator</a></li><li class="breadcrumb-item"><a href="./archSim.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></h1>
 </div>
 
 
@@ -323,12 +329,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">8.1</span> Overview</h2>
+<section id="overview" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">9.1</span> Overview</h2>
 <p>Simulation and optimization system for line follower robots that runs entirely in a web browser. The project is completely static, hosted on GitHub Pages, allowing users to create tracks, configure robots, run realistic physical simulations, and find optimal configurations through optimization algorithms.</p>
 </section>
-<section id="project-objectives" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="project-objectives"><span class="header-section-number">8.2</span> Project Objectives</h2>
+<section id="project-objectives" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="project-objectives"><span class="header-section-number">9.2</span> Project Objectives</h2>
 <ul>
 <li>Enable visual creation and editing of complex tracks with curves, straights, and artifacts</li>
 <li>Simulate realistic robot physics considering mass, friction, temperature, pressure, and other environmental variables</li>
@@ -338,44 +344,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Function completely offline after initial loading</li>
 </ul>
 </section>
-<section id="three-layer-architecture" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="three-layer-architecture"><span class="header-section-number">8.3</span> Three-Layer Architecture</h2>
-<section id="layer-1-user-interface" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="layer-1-user-interface"><span class="header-section-number">8.3.1</span> Layer 1: User Interface</h3>
+<section id="three-layer-architecture" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="three-layer-architecture"><span class="header-section-number">9.3</span> Three-Layer Architecture</h2>
+<section id="layer-1-user-interface" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="layer-1-user-interface"><span class="header-section-number">9.3.1</span> Layer 1: User Interface</h3>
 <p><strong>Technology:</strong> JavaScript/Svelte</p>
 <p><strong>Rationale:</strong> Svelte compiles components to optimized vanilla JavaScript with no runtime overhead, offering efficient reactivity through simple assignments, ideal for updating the UI with continuous simulation data.</p>
 <p><strong>Responsibilities:</strong> - Visual track editor with curve and segment manipulation - Robot and simulation parameter configuration panels - Animation playback controls (play, pause, timeline, speed) - Saved project management and export/import interface - Optimization results visualization and convergence graphs</p>
 <p><strong>State Management:</strong> - Svelte Stores for global state shared between components - Local reactive state in each component - Automatic synchronization with IndexedDB for persistence</p>
 </section>
-<section id="layer-2-simulation-and-optimization" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="layer-2-simulation-and-optimization"><span class="header-section-number">8.3.2</span> Layer 2: Simulation and Optimization</h3>
+<section id="layer-2-simulation-and-optimization" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="layer-2-simulation-and-optimization"><span class="header-section-number">9.3.2</span> Layer 2: Simulation and Optimization</h3>
 <p><strong>Technology:</strong> C++ compiled to WebAssembly via Emscripten</p>
 <p><strong>Rationale:</strong> Near-native performance (80-95%) for intensive physics and optimization calculations, with full control over memory allocation and predictable execution.</p>
-<section id="physics-module" class="level4" data-number="8.3.2.1">
-<h4 data-number="8.3.2.1" class="anchored" data-anchor-id="physics-module"><span class="header-section-number">8.3.2.1</span> Physics Module</h4>
+<section id="physics-module" class="level4" data-number="9.3.2.1">
+<h4 data-number="9.3.2.1" class="anchored" data-anchor-id="physics-module"><span class="header-section-number">9.3.2.1</span> Physics Module</h4>
 <p><strong>Library:</strong> Box2D (official WebAssembly port)</p>
 <p><strong>Rationale:</strong> Complete 2D rigid body physics engine with collision detection and stable numerical integration, eliminating the need to implement subtle stability details.</p>
 <p><strong>Implementation:</strong> - Dynamic robot model with two independent motors (differential drive) - Kinematics calculations considering mass, inertia, and geometry - Friction simulation between wheels and surface - Collision detection with track edges - Infrared sensor system simulating analog line reading</p>
 <p><strong>Environmental Factors:</strong> - Temperature: affects friction and motor response - Atmospheric pressure: influences air density and drag - Robot weight: determines inertia and grip - Friction coefficient: varies by surface type</p>
 </section>
-<section id="mathematics-module" class="level4" data-number="8.3.2.2">
-<h4 data-number="8.3.2.2" class="anchored" data-anchor-id="mathematics-module"><span class="header-section-number">8.3.2.2</span> Mathematics Module</h4>
+<section id="mathematics-module" class="level4" data-number="9.3.2.2">
+<h4 data-number="9.3.2.2" class="anchored" data-anchor-id="mathematics-module"><span class="header-section-number">9.3.2.2</span> Mathematics Module</h4>
 <p><strong>Library:</strong> Eigen</p>
 <p><strong>Rationale:</strong> Header-only linear algebra library that works perfectly with Emscripten, offering optimized matrix operations and solvers essential for optimization algorithms.</p>
 <p><strong>Usage:</strong> - Vector and matrix operations for kinematic calculations - Linear system solvers - Geometric transformation calculations</p>
 </section>
-<section id="optimization-module" class="level4" data-number="8.3.2.3">
-<h4 data-number="8.3.2.3" class="anchored" data-anchor-id="optimization-module"><span class="header-section-number">8.3.2.3</span> Optimization Module</h4>
+<section id="optimization-module" class="level4" data-number="9.3.2.3">
+<h4 data-number="9.3.2.3" class="anchored" data-anchor-id="optimization-module"><span class="header-section-number">9.3.2.3</span> Optimization Module</h4>
 <p><strong>Strategy:</strong> Artifact-Based Hierarchical Decomposition</p>
 <p><strong>Rationale:</strong> Instead of optimizing the entire track as a complex global problem, the system decomposes the track into known geometric primitives (artifacts) and applies analytical or semi-analytical solutions specific to each type. This approach drastically reduces the search space, provides provably optimal solutions for known cases, and enables interpretability of applied strategies.</p>
-<section id="phase-1-pattern-recognition" class="level5" data-number="8.3.2.3.1">
-<h5 data-number="8.3.2.3.1" class="anchored" data-anchor-id="phase-1-pattern-recognition"><span class="header-section-number">8.3.2.3.1</span> Phase 1: Pattern Recognition</h5>
+<section id="phase-1-pattern-recognition" class="level5" data-number="9.3.2.3.1">
+<h5 data-number="9.3.2.3.1" class="anchored" data-anchor-id="phase-1-pattern-recognition"><span class="header-section-number">9.3.2.3.1</span> Phase 1: Pattern Recognition</h5>
 <p><strong>Pattern Recognizer:</strong> Analyzes track geometry and identifies known artifacts.</p>
 <p><strong>Artifacts Supported in Library:</strong> - Simple straight: linear segment without curvature - Circular curve: circle arc with constant radius - Straight-curve-straight transition: common sequence in racing tracks - S-Curve: two consecutive curves in opposite directions - Chicane: rapid sequence of alternating curves - Hairpin: tight 180-degree turn - Spiral: curve with continuously varying radius</p>
 <p><strong>Recognition Process:</strong> 1. Scan track segments sequentially 2. Attempt pattern matching from most specific to most generic 3. When a match is found, mark segments as part of the artifact 4. Unrecognized segments are marked as “complex artifacts” for numerical optimization</p>
 </section>
-<section id="phase-2-analytical-strategy-library" class="level5" data-number="8.3.2.3.2">
-<h5 data-number="8.3.2.3.2" class="anchored" data-anchor-id="phase-2-analytical-strategy-library"><span class="header-section-number">8.3.2.3.2</span> Phase 2: Analytical Strategy Library</h5>
+<section id="phase-2-analytical-strategy-library" class="level5" data-number="9.3.2.3.2">
+<h5 data-number="9.3.2.3.2" class="anchored" data-anchor-id="phase-2-analytical-strategy-library"><span class="header-section-number">9.3.2.3.2</span> Phase 2: Analytical Strategy Library</h5>
 <p>Each artifact in the library has a specific optimization strategy based on established physical principles and control theory.</p>
 <p><strong>Straight:</strong> - Strategy: accelerate to maximum robot velocity and maintain - Instantaneous calculation, trivially optimal solution</p>
 <p><strong>Circular Curve:</strong> - Maximum velocity: <code>v_max = sqrt(μ * g * R)</code> where μ is friction coefficient, g gravity, R radius - Racing line: enter wide, cut apex (innermost point), exit wide to maximize effective radius - Analytical solution based on classical vehicle dynamics</p>
@@ -384,14 +390,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Hairpin:</strong> - Very reduced velocity at apex - Wide entry, late apex, accelerate on exit - Calculation based on robot’s minimum turning radius</p>
 <p><strong>Spiral:</strong> - Velocity inversely proportional to local curvature - Racing line follows varying radius - Calculation by integration along curve</p>
 </section>
-<section id="phase-3-transition-optimization" class="level5" data-number="8.3.2.3.3">
-<h5 data-number="8.3.2.3.3" class="anchored" data-anchor-id="phase-3-transition-optimization"><span class="header-section-number">8.3.2.3.3</span> Phase 3: Transition Optimization</h5>
+<section id="phase-3-transition-optimization" class="level5" data-number="9.3.2.3.3">
+<h5 data-number="9.3.2.3.3" class="anchored" data-anchor-id="phase-3-transition-optimization"><span class="header-section-number">9.3.2.3.3</span> Phase 3: Transition Optimization</h5>
 <p><strong>Reduced Problem:</strong> For N artifacts, optimize only N-1 transition velocities between consecutive artifacts.</p>
 <p><strong>Approach:</strong> - Intelligent initialization using physical estimates - Optimization by numerical (finite differences) or analytical gradient if available - Problem typically with 5-15 variables (much smaller than global optimization) - Fast convergence due to reduced search space</p>
 <p><strong>Algorithm:</strong> 1. Calculate optimal local strategy for each artifact assuming initial transition velocities 2. Optimize transition velocities to minimize total time 3. Recalculate local strategies with optimized velocities 4. Iterate until convergence (typically 3-5 iterations)</p>
 </section>
-<section id="phase-4-complex-artifact-optimization" class="level5" data-number="8.3.2.3.4">
-<h5 data-number="8.3.2.3.4" class="anchored" data-anchor-id="phase-4-complex-artifact-optimization"><span class="header-section-number">8.3.2.3.4</span> Phase 4: Complex Artifact Optimization</h5>
+<section id="phase-4-complex-artifact-optimization" class="level5" data-number="9.3.2.3.4">
+<h5 data-number="9.3.2.3.4" class="anchored" data-anchor-id="phase-4-complex-artifact-optimization"><span class="header-section-number">9.3.2.3.4</span> Phase 4: Complex Artifact Optimization</h5>
 <p>For geometries that do not fit known patterns, apply advanced numerical optimization techniques only locally to that artifact.</p>
 <p><strong>Available Techniques:</strong></p>
 <p><strong>Gradient-Based Optimization:</strong> - L-BFGS: quasi-Newton method without Hessian requirement, fast convergence - Gradient Descent with momentum: for cases with noisy objective function - Automatic Differentiation via CppAD: computes exact gradients without approximations - Finite Differences: numerical approximation when automatic differentiation is not applicable</p>
@@ -401,32 +407,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Shooting Methods:</strong> - Integrates dynamics equations forward with candidate controls - Adjusts controls to satisfy boundary conditions - Single shooting (simple) or Multiple shooting (more robust)</p>
 <p><strong>Fallback - Stochastic Algorithms:</strong> Only when deterministic methods fail due to multiple local minima: - Particle Swarm Optimization (PSO): generally faster than GA - Genetic Algorithm: robust but computationally expensive - Simulated Annealing: for highly non-convex search spaces</p>
 </section>
-<section id="optimizable-parameters" class="level5" data-number="8.3.2.3.5">
-<h5 data-number="8.3.2.3.5" class="anchored" data-anchor-id="optimizable-parameters"><span class="header-section-number">8.3.2.3.5</span> Optimizable Parameters</h5>
+<section id="optimizable-parameters" class="level5" data-number="9.3.2.3.5">
+<h5 data-number="9.3.2.3.5" class="anchored" data-anchor-id="optimizable-parameters"><span class="header-section-number">9.3.2.3.5</span> Optimizable Parameters</h5>
 <p><strong>Artifact Level:</strong> - Entry and exit velocities - Braking/acceleration start points - Trajectory (racing line) for curves - Maneuver aggressiveness</p>
 <p><strong>Global Level:</strong> - PID controller gains (Kp, Ki, Kd) via established tuning methods (Ziegler-Nichols, Cohen-Coon) - Maximum robot velocity in different environmental conditions - Safety margins (minimum distance from edges)</p>
 </section>
-<section id="objective-function" class="level5" data-number="8.3.2.3.6">
-<h5 data-number="8.3.2.3.6" class="anchored" data-anchor-id="objective-function"><span class="header-section-number">8.3.2.3.6</span> Objective Function</h5>
+<section id="objective-function" class="level5" data-number="9.3.2.3.6">
+<h5 data-number="9.3.2.3.6" class="anchored" data-anchor-id="objective-function"><span class="header-section-number">9.3.2.3.6</span> Objective Function</h5>
 <p><strong>Primary:</strong> Total time to complete track</p>
 <p><strong>Secondary (weighted):</strong> - Trajectory smoothness: penalizes abrupt accelerations and oscillations - Energy consumption: integral of power along path - Safety margin: penalizes excessive proximity to edges - Mechanical wear: penalizes maneuvers that stress components</p>
 </section>
-<section id="advantages-of-artifact-based-approach" class="level5" data-number="8.3.2.3.7">
-<h5 data-number="8.3.2.3.7" class="anchored" data-anchor-id="advantages-of-artifact-based-approach"><span class="header-section-number">8.3.2.3.7</span> Advantages of Artifact-Based Approach</h5>
+<section id="advantages-of-artifact-based-approach" class="level5" data-number="9.3.2.3.7">
+<h5 data-number="9.3.2.3.7" class="anchored" data-anchor-id="advantages-of-artifact-based-approach"><span class="header-section-number">9.3.2.3.7</span> Advantages of Artifact-Based Approach</h5>
 <p><strong>Computational Efficiency:</strong> - 80-95% reduction in number of variables to optimize - Analytical solutions are instantaneous (microseconds) - Numerical optimization applied only where necessary</p>
 <p><strong>Interpretability:</strong> - User sees specific strategy applied to each artifact - Detailed feedback: “In this 8m radius curve, limited by grip to 1.2 m/s” - Educational value about vehicle dynamics and racing strategies</p>
 <p><strong>Robustness:</strong> - Analytical solutions are provably optimal within physical constraints - No risk of convergence to poor local minima in known artifacts - Deterministic and reproducible results</p>
 <p><strong>Scalability:</strong> - Artifact library can grow incrementally - Advanced users can contribute new artifacts - Each artifact is independent testable module</p>
 </section>
 </section>
-<section id="operating-modes" class="level4" data-number="8.3.2.4">
-<h4 data-number="8.3.2.4" class="anchored" data-anchor-id="operating-modes"><span class="header-section-number">8.3.2.4</span> Operating Modes</h4>
+<section id="operating-modes" class="level4" data-number="9.3.2.4">
+<h4 data-number="9.3.2.4" class="anchored" data-anchor-id="operating-modes"><span class="header-section-number">9.3.2.4</span> Operating Modes</h4>
 <p><strong>Batch Mode (Optimization):</strong> - Executes thousands of complete simulations without visualization - Returns only final results (fitness, time, parameters) - Optimized for maximum execution speed - Runs in Web Worker to not block interface</p>
 <p><strong>Step Mode (Visualization):</strong> - Advances simulation incrementally synchronized with animation - Returns complete state at each step (position, velocity, sensors) - Generates complete state log for later playback - Allows fine control of simulation rate</p>
 </section>
 </section>
-<section id="layer-3-3d-visualization" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="layer-3-3d-visualization"><span class="header-section-number">8.3.3</span> Layer 3: 3D Visualization</h3>
+<section id="layer-3-3d-visualization" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="layer-3-3d-visualization"><span class="header-section-number">9.3.3</span> Layer 3: 3D Visualization</h3>
 <p><strong>Technology:</strong> Three.js</p>
 <p><strong>Rationale:</strong> Mature and performant library for 3D rendering in browser with extensive ecosystem and documentation.</p>
 <p><strong>Scene Components:</strong> - Track surface (plane or textured mesh) - Black line as extruded geometry or texture - 3D robot model (simple geometry with orientation indicator) - Sensor visualization (rays or cones showing detection) - Configurable camera (free perspective or following robot) - Lighting and shadows for visual depth</p>
@@ -434,10 +440,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Performance Optimization:</strong> - Instanced rendering for repetitive track elements - Texture atlases to reduce draw calls - Object pooling to avoid creation/destruction - Frustum culling and occlusion culling</p>
 </section>
 </section>
-<section id="communication-between-components" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="communication-between-components"><span class="header-section-number">8.4</span> Communication Between Components</h2>
-<section id="javascript-webassembly-binding" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="javascript-webassembly-binding"><span class="header-section-number">8.4.1</span> JavaScript ↔︎ WebAssembly Binding</h3>
+<section id="communication-between-components" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="communication-between-components"><span class="header-section-number">9.4</span> Communication Between Components</h2>
+<section id="javascript-webassembly-binding" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="javascript-webassembly-binding"><span class="header-section-number">9.4.1</span> JavaScript ↔︎ WebAssembly Binding</h3>
 <p><strong>Technology:</strong> Embind (provided by Emscripten)</p>
 <p><strong>Structure:</strong></p>
 <pre><code>Svelte Interface (JS)
@@ -448,15 +454,15 @@ Core Engine (C++ WASM)</code></pre>
 <p><strong>Exposed Types:</strong> - RobotConfig: complete robot configuration - TrackSegment: track segment definition - SimulationState: instantaneous simulation state - OptimizationResult: optimization process results</p>
 <p><strong>Transfer Optimization:</strong> - Shared memory via TypedArrays for frequent data - JSON serialization for sporadic configurations - Reusable buffers to avoid repeated allocations</p>
 </section>
-<section id="asynchronous-execution" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="asynchronous-execution"><span class="header-section-number">8.4.2</span> Asynchronous Execution</h3>
+<section id="asynchronous-execution" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="asynchronous-execution"><span class="header-section-number">9.4.2</span> Asynchronous Execution</h3>
 <p><strong>Web Workers:</strong> - Long optimization operations run in dedicated workers - Interface remains responsive during intensive processing - Communication via postMessage with serializable data - Progress callbacks for progress bar updates</p>
 </section>
 </section>
-<section id="persistence-and-sharing" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="persistence-and-sharing"><span class="header-section-number">8.5</span> Persistence and Sharing</h2>
-<section id="local-storage" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="local-storage"><span class="header-section-number">8.5.1</span> Local Storage</h3>
+<section id="persistence-and-sharing" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="persistence-and-sharing"><span class="header-section-number">9.5</span> Persistence and Sharing</h2>
+<section id="local-storage" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="local-storage"><span class="header-section-number">9.5.1</span> Local Storage</h3>
 <p><strong>Technology:</strong> IndexedDB via Dexie.js</p>
 <p><strong>Rationale:</strong> Dexie.js provides simplified IndexedDB wrapper with Promise-based API and advanced query capabilities.</p>
 <p><strong>Schemas:</strong></p>
@@ -467,8 +473,8 @@ Core Engine (C++ WASM)</code></pre>
 <p><strong>Capacity:</strong> - 50MB to several GB depending on browser - Sufficient for hundreds of complex projects</p>
 <p><strong>Compaction Strategy:</strong> - Simulation logs stored as keyframes - Gzip compression for large data - Automatic cleanup of old data (optional)</p>
 </section>
-<section id="file-format" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="file-format"><span class="header-section-number">8.5.2</span> File Format</h3>
+<section id="file-format" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="file-format"><span class="header-section-number">9.5.2</span> File Format</h3>
 <p><strong>Extension:</strong> .lfsim (structured JSON)</p>
 <p><strong>Structure:</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
@@ -496,22 +502,22 @@ Core Engine (C++ WASM)</code></pre>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="url-sharing" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="url-sharing"><span class="header-section-number">8.5.3</span> URL Sharing</h3>
+<section id="url-sharing" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="url-sharing"><span class="header-section-number">9.5.3</span> URL Sharing</h3>
 <p><strong>Technology:</strong> Pako (gzip compression)</p>
 <p><strong>Process:</strong> 1. Serialize project to JSON 2. Compress with gzip (Pako) 3. Encode in Base64 4. Include in URL query parameter</p>
 <p><strong>Practical Limit:</strong> - URLs up to ~2KB work in all browsers - URLs up to ~8KB work in most cases - Large projects require file export</p>
 </section>
 </section>
-<section id="complete-technology-stack" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="complete-technology-stack"><span class="header-section-number">8.6</span> Complete Technology Stack</h2>
-<section id="frontend" class="level3" data-number="8.6.1">
-<h3 data-number="8.6.1" class="anchored" data-anchor-id="frontend"><span class="header-section-number">8.6.1</span> Frontend</h3>
+<section id="complete-technology-stack" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="complete-technology-stack"><span class="header-section-number">9.6</span> Complete Technology Stack</h2>
+<section id="frontend" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="frontend"><span class="header-section-number">9.6.1</span> Frontend</h3>
 <p><strong>Runtime:</strong> - Svelte: Reactive UI framework - JavaScript/TypeScript: Primary language - Three.js: 3D rendering - Dexie.js: IndexedDB wrapper - Pako: Gzip compression</p>
 <p><strong>Build Tools:</strong> - Vite: Modern bundler with native WASM support - TypeScript (optional): Static typing - ESLint: JavaScript code linting - Prettier: Code formatting</p>
 </section>
-<section id="core-engine" class="level3" data-number="8.6.2">
-<h3 data-number="8.6.2" class="anchored" data-anchor-id="core-engine"><span class="header-section-number">8.6.2</span> Core Engine</h3>
+<section id="core-engine" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="core-engine"><span class="header-section-number">9.6.2</span> Core Engine</h3>
 <p><strong>Language:</strong> C++17</p>
 <p><strong>Libraries:</strong> - Box2D: 2D physics engine - Eigen: Linear algebra (header-only) - Emscripten: Toolchain for WASM - CppAD (optional): Automatic differentiation for gradient-based optimization - NLopt (optional): Nonlinear optimization algorithm library</p>
 <p><strong>Build Tools:</strong> - CMake: Build system - Emscripten SDK (emsdk): C++ → WASM compiler</p>
@@ -524,16 +530,16 @@ Core Engine (C++ WASM)</code></pre>
 -s MAXIMUM_MEMORY=512MB      # Memory limit
 --bind                       # Enable Embind</code></pre>
 </section>
-<section id="deployment" class="level3" data-number="8.6.3">
-<h3 data-number="8.6.3" class="anchored" data-anchor-id="deployment"><span class="header-section-number">8.6.3</span> Deployment</h3>
+<section id="deployment" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="deployment"><span class="header-section-number">9.6.3</span> Deployment</h3>
 <p><strong>Hosting:</strong> GitHub Pages</p>
 <p><strong>CI/CD:</strong> GitHub Actions</p>
 <p><strong>Pipeline:</strong> 1. Compile C++ to WASM via Emscripten 2. Bundle JavaScript/Svelte via Vite 3. Optimize assets (images, fonts) 4. Deploy to gh-pages branch</p>
 <p><strong>Requirements:</strong> - Public repository or GitHub Pro - GitHub Actions enabled - GitHub Pages configuration pointing to gh-pages branch</p>
 </section>
 </section>
-<section id="directory-structure" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="directory-structure"><span class="header-section-number">8.7</span> Directory Structure</h2>
+<section id="directory-structure" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="directory-structure"><span class="header-section-number">9.7</span> Directory Structure</h2>
 <pre><code>line-follower-simulator/
 ├── README.md
 ├── ARCHITECTURE.md
@@ -631,10 +637,10 @@ Core Engine (C++ WASM)</code></pre>
     ├── simulator.js
     └── simulator.wasm</code></pre>
 </section>
-<section id="development-plan-in-phases" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="development-plan-in-phases"><span class="header-section-number">8.8</span> Development Plan in Phases</h2>
-<section id="phase-1-foundation-and-basic-simulation" class="level3" data-number="8.8.1">
-<h3 data-number="8.8.1" class="anchored" data-anchor-id="phase-1-foundation-and-basic-simulation"><span class="header-section-number">8.8.1</span> Phase 1: Foundation and Basic Simulation</h3>
+<section id="development-plan-in-phases" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="development-plan-in-phases"><span class="header-section-number">9.8</span> Development Plan in Phases</h2>
+<section id="phase-1-foundation-and-basic-simulation" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="phase-1-foundation-and-basic-simulation"><span class="header-section-number">9.8.1</span> Phase 1: Foundation and Basic Simulation</h3>
 <p><strong>Objective:</strong> Create functional system with abstract control model</p>
 <p><strong>Components:</strong> 1. Basic Svelte interface - Simple track editor (straight lines and curves) - Robot parameter configuration panel - Basic 2D visualization of simulation state</p>
 <ol start="2" type="1">
@@ -660,8 +666,8 @@ Core Engine (C++ WASM)</code></pre>
 <p><strong>Deliverable:</strong> Functional simulator where users can create tracks, configure robots, and visualize simulations.</p>
 <p><strong>Estimated Duration:</strong> 2-3 months</p>
 </section>
-<section id="phase-2-artifact-based-optimization" class="level3" data-number="8.8.2">
-<h3 data-number="8.8.2" class="anchored" data-anchor-id="phase-2-artifact-based-optimization"><span class="header-section-number">8.8.2</span> Phase 2: Artifact-Based Optimization</h3>
+<section id="phase-2-artifact-based-optimization" class="level3" data-number="9.8.2">
+<h3 data-number="9.8.2" class="anchored" data-anchor-id="phase-2-artifact-based-optimization"><span class="header-section-number">9.8.2</span> Phase 2: Artifact-Based Optimization</h3>
 <p><strong>Objective:</strong> Implement hierarchical optimization system with artifact decomposition</p>
 <p><strong>Components:</strong> 1. Pattern Recognition System - Pattern Recognizer to identify geometric artifacts - Complete implementation in C++ - Visualization of track decomposition into artifacts - Interface to adjust recognition tolerances</p>
 <ol start="2" type="1">
@@ -711,8 +717,8 @@ Core Engine (C++ WASM)</code></pre>
 <p><strong>Deliverable:</strong> Complete optimization system that decomposes tracks into artifacts, applies analytical solutions where possible, and optimizes numerically only when necessary. Users can visualize and understand strategies applied to each track section.</p>
 <p><strong>Estimated Duration:</strong> 3-4 months</p>
 </section>
-<section id="phase-3-arduino-emulation-future" class="level3" data-number="8.8.3">
-<h3 data-number="8.8.3" class="anchored" data-anchor-id="phase-3-arduino-emulation-future"><span class="header-section-number">8.8.3</span> Phase 3: Arduino Emulation (Future)</h3>
+<section id="phase-3-arduino-emulation-future" class="level3" data-number="9.8.3">
+<h3 data-number="9.8.3" class="anchored" data-anchor-id="phase-3-arduino-emulation-future"><span class="header-section-number">9.8.3</span> Phase 3: Arduino Emulation (Future)</h3>
 <p><strong>Objective:</strong> Enable execution of real Arduino code in simulation</p>
 <p><strong>Possible Approaches:</strong></p>
 <p><strong>Option A - High-Level Interpreter:</strong> - Create interpreter for Arduino API subset - Support essential functions (pinMode, analogRead, analogWrite, etc.) - Real-time code parsing and execution - Instrumentation for visual debugging</p>
@@ -722,31 +728,31 @@ Core Engine (C++ WASM)</code></pre>
 <p><strong>Estimated Duration:</strong> 3-6 months (depending on approach)</p>
 </section>
 </section>
-<section id="performance-considerations" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="performance-considerations"><span class="header-section-number">8.9</span> Performance Considerations</h2>
-<section id="performance-targets" class="level3" data-number="8.9.1">
-<h3 data-number="8.9.1" class="anchored" data-anchor-id="performance-targets"><span class="header-section-number">8.9.1</span> Performance Targets</h3>
+<section id="performance-considerations" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="performance-considerations"><span class="header-section-number">9.9</span> Performance Considerations</h2>
+<section id="performance-targets" class="level3" data-number="9.9.1">
+<h3 data-number="9.9.1" class="anchored" data-anchor-id="performance-targets"><span class="header-section-number">9.9.1</span> Performance Targets</h3>
 <p><strong>Simulation:</strong> - Batch mode: 1000+ simulations/second (optimization) - Step mode: 60 FPS with stable physics</p>
 <p><strong>Rendering:</strong> - Constant 60 FPS on modern hardware - Minimum 30 FPS on older hardware - Graceful quality degradation if necessary</p>
 <p><strong>Loading:</strong> - Initial download: &lt;5 MB - Initialization time: &lt;2 seconds - Project loading: &lt;500 ms</p>
 </section>
-<section id="planned-optimizations" class="level3" data-number="8.9.2">
-<h3 data-number="8.9.2" class="anchored" data-anchor-id="planned-optimizations"><span class="header-section-number">8.9.2</span> Planned Optimizations</h3>
+<section id="planned-optimizations" class="level3" data-number="9.9.2">
+<h3 data-number="9.9.2" class="anchored" data-anchor-id="planned-optimizations"><span class="header-section-number">9.9.2</span> Planned Optimizations</h3>
 <p><strong>C++ WASM:</strong> - Compilation with -O3 and link-time optimization - SIMD for vector operations when available - Memory pools to avoid repeated allocations - Profile-guided optimization in hot paths</p>
 <p><strong>Three.js:</strong> - Geometry instancing for repeated elements - Texture atlases to reduce draw calls - Object pooling to avoid creation/destruction - Frustum culling and occlusion culling</p>
 <p><strong>JavaScript:</strong> - Code splitting for on-demand loading - Tree shaking to eliminate unused code - Gzip/brotli compression of assets - Service Worker for offline cache</p>
 </section>
 </section>
-<section id="testing-and-quality" class="level2" data-number="8.10">
-<h2 data-number="8.10" class="anchored" data-anchor-id="testing-and-quality"><span class="header-section-number">8.10</span> Testing and Quality</h2>
-<section id="testing-strategy" class="level3" data-number="8.10.1">
-<h3 data-number="8.10.1" class="anchored" data-anchor-id="testing-strategy"><span class="header-section-number">8.10.1</span> Testing Strategy</h3>
+<section id="testing-and-quality" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="testing-and-quality"><span class="header-section-number">9.10</span> Testing and Quality</h2>
+<section id="testing-strategy" class="level3" data-number="9.10.1">
+<h3 data-number="9.10.1" class="anchored" data-anchor-id="testing-strategy"><span class="header-section-number">9.10.1</span> Testing Strategy</h3>
 <p><strong>Unit Tests:</strong> - Mathematical and physical functions in C++ - Isolated Svelte components - Serialization/deserialization functions</p>
 <p><strong>Integration:</strong> - JavaScript ↔︎ WASM communication - Complete persistence pipeline - Recorded simulation playback</p>
 <p><strong>E2E:</strong> - Complete user flows (create, simulate, save) - Cross-browser compatibility - Performance on different hardware</p>
 </section>
-<section id="tools" class="level3" data-number="8.10.2">
-<h3 data-number="8.10.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">8.10.2</span> Tools</h3>
+<section id="tools" class="level3" data-number="9.10.2">
+<h3 data-number="9.10.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">9.10.2</span> Tools</h3>
 <ul>
 <li>Vitest: JavaScript unit tests</li>
 <li>Google Test: C++ unit tests</li>
@@ -755,10 +761,10 @@ Core Engine (C++ WASM)</code></pre>
 </ul>
 </section>
 </section>
-<section id="system-requirements" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="system-requirements"><span class="header-section-number">8.11</span> System Requirements</h2>
-<section id="supported-browsers" class="level3" data-number="8.11.1">
-<h3 data-number="8.11.1" class="anchored" data-anchor-id="supported-browsers"><span class="header-section-number">8.11.1</span> Supported Browsers</h3>
+<section id="system-requirements" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="system-requirements"><span class="header-section-number">9.11</span> System Requirements</h2>
+<section id="supported-browsers" class="level3" data-number="9.11.1">
+<h3 data-number="9.11.1" class="anchored" data-anchor-id="supported-browsers"><span class="header-section-number">9.11.1</span> Supported Browsers</h3>
 <ul>
 <li>Chrome/Edge 90+</li>
 <li>Firefox 88+</li>
@@ -766,21 +772,21 @@ Core Engine (C++ WASM)</code></pre>
 <li>Modern mobile browsers (limited functionality)</li>
 </ul>
 </section>
-<section id="hardware-requirements" class="level3" data-number="8.11.2">
-<h3 data-number="8.11.2" class="anchored" data-anchor-id="hardware-requirements"><span class="header-section-number">8.11.2</span> Hardware Requirements</h3>
+<section id="hardware-requirements" class="level3" data-number="9.11.2">
+<h3 data-number="9.11.2" class="anchored" data-anchor-id="hardware-requirements"><span class="header-section-number">9.11.2</span> Hardware Requirements</h3>
 <p><strong>Minimum:</strong> - CPU: Dual-core 2.0 GHz - RAM: 4 GB - GPU: WebGL 2.0 support</p>
 <p><strong>Recommended:</strong> - CPU: Quad-core 3.0 GHz+ - RAM: 8 GB+ - GPU: Dedicated with WebGL 2.0 support</p>
 </section>
 </section>
-<section id="licensing" class="level2" data-number="8.12">
-<h2 data-number="8.12" class="anchored" data-anchor-id="licensing"><span class="header-section-number">8.12</span> Licensing</h2>
+<section id="licensing" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="licensing"><span class="header-section-number">9.12</span> Licensing</h2>
 <p><strong>Own Code:</strong> To be defined (MIT or GPL suggested)</p>
 <p><strong>Dependencies:</strong> - Svelte: MIT License - Three.js: MIT License - Box2D: MIT License - Eigen: MPL2 License - Emscripten: MIT/LLVM License - Dexie.js: Apache License 2.0 - Pako: MIT License</p>
 </section>
-<section id="technical-references" class="level2" data-number="8.13">
-<h2 data-number="8.13" class="anchored" data-anchor-id="technical-references"><span class="header-section-number">8.13</span> Technical References</h2>
-<section id="documentation" class="level3" data-number="8.13.1">
-<h3 data-number="8.13.1" class="anchored" data-anchor-id="documentation"><span class="header-section-number">8.13.1</span> Documentation</h3>
+<section id="technical-references" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="technical-references"><span class="header-section-number">9.13</span> Technical References</h2>
+<section id="documentation" class="level3" data-number="9.13.1">
+<h3 data-number="9.13.1" class="anchored" data-anchor-id="documentation"><span class="header-section-number">9.13.1</span> Documentation</h3>
 <ul>
 <li><strong>Svelte:</strong> https://svelte.dev/docs</li>
 <li><strong>Three.js:</strong> https://threejs.org/docs</li>
@@ -790,8 +796,8 @@ Core Engine (C++ WASM)</code></pre>
 <li><strong>Dexie.js:</strong> https://dexie.org</li>
 </ul>
 </section>
-<section id="learning-resources" class="level3" data-number="8.13.2">
-<h3 data-number="8.13.2" class="anchored" data-anchor-id="learning-resources"><span class="header-section-number">8.13.2</span> Learning Resources</h3>
+<section id="learning-resources" class="level3" data-number="9.13.2">
+<h3 data-number="9.13.2" class="anchored" data-anchor-id="learning-resources"><span class="header-section-number">9.13.2</span> Learning Resources</h3>
 <ul>
 <li><strong>WebAssembly:</strong> https://webassembly.org</li>
 <li><strong>Genetic Algorithms:</strong> “An Introduction to Genetic Algorithms” - Mitchell (1998)</li>
@@ -1364,12 +1370,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./testing_guide.html" class="pagination-link" aria-label="Testing Guide">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Testing Guide</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./optLineFollower1.html" class="pagination-link" aria-label="Optimization Methods for Line Follower Simulation">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

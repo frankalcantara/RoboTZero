@@ -13,6 +13,7 @@ book:
   date: "11/22/2024"
   chapters:
     - index.qmd
+    - installation-guide.qmd
     - part: Line Follower 
       chapters:
         - index.qmd

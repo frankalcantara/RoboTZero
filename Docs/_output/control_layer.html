@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RobotZero - 6&nbsp; Control Layer Implementation</title>
+<title>RobotZero - 7&nbsp; Control Layer Implementation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="RobotZero - 6&nbsp; Control Layer Implementation">
+<meta property="og:title" content="RobotZero - 7&nbsp; Control Layer Implementation">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="RobotZero">
-<meta name="twitter:title" content="RobotZero - 6&nbsp; Control Layer Implementation">
+<meta name="twitter:title" content="RobotZero - 7&nbsp; Control Layer Implementation">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./control_layer.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./control_layer.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,6 +159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction RoboTZero</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Development Environment Installation Guide</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -177,31 +183,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oper.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Line Following Robot Operation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./block.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">RobotZero Modules Description</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./config_layer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./control_layer.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./testing_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Testing Guide</span></span></a>
   </div>
 </li>
       </ul>
@@ -218,13 +224,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./archSim.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Line Follower Simulator Architecture</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./optLineFollower1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization Methods for Line Follower Simulation</span></span></a>
   </div>
 </li>
       </ul>
@@ -245,15 +251,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#coursemarkers-implementation" id="toc-coursemarkers-implementation" class="nav-link active" data-scroll-target="#coursemarkers-implementation"><span class="header-section-number">7</span> CourseMarkers Implementation</a>
+  <li><a href="#coursemarkers-implementation" id="toc-coursemarkers-implementation" class="nav-link active" data-scroll-target="#coursemarkers-implementation"><span class="header-section-number">8</span> CourseMarkers Implementation</a>
   <ul class="collapse">
-  <li><a href="#core-architecture" id="toc-core-architecture" class="nav-link" data-scroll-target="#core-architecture"><span class="header-section-number">7.1</span> Core Architecture</a>
+  <li><a href="#core-architecture" id="toc-core-architecture" class="nav-link" data-scroll-target="#core-architecture"><span class="header-section-number">8.1</span> Core Architecture</a>
   <ul class="collapse">
-  <li><a href="#state-management" id="toc-state-management" class="nav-link" data-scroll-target="#state-management"><span class="header-section-number">7.1.1</span> State Management</a></li>
+  <li><a href="#state-management" id="toc-state-management" class="nav-link" data-scroll-target="#state-management"><span class="header-section-number">8.1.1</span> State Management</a></li>
   </ul></li>
-  <li><a href="#integration-with-debug-layer" id="toc-integration-with-debug-layer" class="nav-link" data-scroll-target="#integration-with-debug-layer"><span class="header-section-number">7.2</span> Integration with Debug Layer</a></li>
-  <li><a href="#timing-considerations" id="toc-timing-considerations" class="nav-link" data-scroll-target="#timing-considerations"><span class="header-section-number">7.3</span> Timing Considerations</a></li>
-  <li><a href="#profilemanager-implementation" id="toc-profilemanager-implementation" class="nav-link" data-scroll-target="#profilemanager-implementation"><span class="header-section-number">7.4</span> ProfileManager Implementation</a></li>
+  <li><a href="#integration-with-debug-layer" id="toc-integration-with-debug-layer" class="nav-link" data-scroll-target="#integration-with-debug-layer"><span class="header-section-number">8.2</span> Integration with Debug Layer</a></li>
+  <li><a href="#timing-considerations" id="toc-timing-considerations" class="nav-link" data-scroll-target="#timing-considerations"><span class="header-section-number">8.3</span> Timing Considerations</a></li>
+  <li><a href="#profilemanager-implementation" id="toc-profilemanager-implementation" class="nav-link" data-scroll-target="#profilemanager-implementation"><span class="header-section-number">8.4</span> ProfileManager Implementation</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/frankalcantara/RoboTZero/edit/main/control_layer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/frankalcantara/RoboTZero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -261,9 +267,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./control_layer.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Line Follower</a></li><li class="breadcrumb-item"><a href="./control_layer.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Control Layer Implementation</span></h1>
 </div>
 
 
@@ -286,11 +292,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p>The <code>CourseMarkers</code> class represents the primary control component, implementing track feature detection and corresponding behaviour adjustments. This class processes marker sensor data to identify track features and manages the robot’s response to these features, including speed changes, lap counting, and precision mode transitions. Through its state machine implementation, it ensures reliable detection of track features and smooth transitions between different operating modes.</p>
 <p>The <code>ProfileManager</code> class complements the control system by managing operation profiles and parameters based on the current debug level. When <code>DEBUG_LEVEL</code> is greater than <code>0</code>, it provides different speed and control parameter sets optimized for either analysis (<code>DEBUG_LEVEL = 1</code>) or high-speed performance (<code>DEBUG_LEVEL = 2</code>). This class enables the robot to maintain consistent control logic while operating under different performance requirements, making it an essential component for both development and competition scenarios.</p>
-<section id="coursemarkers-implementation" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> CourseMarkers Implementation</h1>
+<section id="coursemarkers-implementation" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> CourseMarkers Implementation</h1>
 <p>The <code>CourseMarkers</code> class represents a control component implementing track feature detection and robot behaviour management through an optimized state-based approach. This implementation focuses on efficient timing control, reliable marker detection, and seamless integration with both the debug system and main control loop.</p>
-<section id="core-architecture" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="core-architecture"><span class="header-section-number">7.1</span> Core Architecture</h2>
+<section id="core-architecture" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="core-architecture"><span class="header-section-number">8.1</span> Core Architecture</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CourseMarkers <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Timing control</span></span>
@@ -417,8 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>handleIntersection()</code>: Logs intersection detection.</li>
 </ul></li>
 </ol>
-<section id="state-management" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="state-management"><span class="header-section-number">7.1.1</span> State Management</h3>
+<section id="state-management" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="state-management"><span class="header-section-number">8.1.1</span> State Management</h3>
 <p>The state management system operates through a decision tree (Figure 1), processing marker states in the <code>processMarkerSignals</code> method. The decision process begins with a read operation that captures the current state of both markers, encoding them into a single value through binary manipulation: the right marker contributes the least significant bit (1), while the left marker sets the second bit (2), resulting in four possible states (0: no markers, 1: left only, 2: right only, 3: both markers).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -442,8 +448,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The process concludes with a check of the stopping sequence flags. When active, the stop sequence implements a two-phase deceleration: first reducing speed to SPEED_BRAKE if the slowdown timer hasn’t expired, then bringing the robot to a complete stop once the stop timer completes. This gradual stopping process ensures smooth deceleration while maintaining control throughout the stopping sequence.</p>
 </section>
 </section>
-<section id="integration-with-debug-layer" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="integration-with-debug-layer"><span class="header-section-number">7.2</span> Integration with Debug Layer</h2>
+<section id="integration-with-debug-layer" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="integration-with-debug-layer"><span class="header-section-number">8.2</span> Integration with Debug Layer</h2>
 <p>When operating in debug mode (<code>DEBUG_LEVEL &gt; 0</code>), the system provides comprehensive data collection:</p>
 <ol type="1">
 <li><p>Event Logging:</p>
@@ -472,14 +478,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
-<section id="timing-considerations" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="timing-considerations"><span class="header-section-number">7.3</span> Timing Considerations</h2>
+<section id="timing-considerations" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="timing-considerations"><span class="header-section-number">8.3</span> Timing Considerations</h2>
 <p>The timing system implementation represents a critical aspect of RobotZero’s control architecture, orchestrating multiple time-sensitive operations through carefully calibrated intervals. At its core, the marker detection system operates on a fixed 2ms sampling interval, implemented through a time-difference check at the start of each reading cycle. This precise timing ensures consistent marker detection while preventing excessive sensor polling that could impact system performance. The sampling rate was determined through empirical testing to balance between reliable detection and system overhead.</p>
 <p>When the robot initiates its stopping sequence, the system employs a two-phase timing approach. Initially, a 50ms slowdown period allows for controlled deceleration to <code>SPEED_BRAKE</code>, providing a smooth transition from full speed. After this initial brake phase, a longer STOP_DELAY interval guides the robot to a complete stop, preventing abrupt movements that could affect positioning accuracy. These timing values work in concert with the speed adjustment system, which uses `ACCELERATION_STEP` and `BRAKE_STEP` to control velocity changes. The step values create a gradual acceleration and deceleration profile, protecting the motors while maintaining precise control over the robot’s movement.</p>
 <p>Post-curve speed management introduces another timing element through the boost system. When exiting a curve, the boostCountdown timer activates for a configurable duration (`BOOST_DURATION`), during which the robot can temporarily exceed its normal speed limits. This boost phase is carefully timed to maximize straight-line performance while ensuring the robot maintains stability as it transitions from curved to straight sections. The timing parameters across these systems are interdependent; for example, the marker reading interval must be fast enough to detect course features even at maximum boost speed, while the acceleration steps must be calibrated to work effectively within the boost duration window.</p>
 </section>
-<section id="profilemanager-implementation" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="profilemanager-implementation"><span class="header-section-number">7.4</span> ProfileManager Implementation</h2>
+<section id="profilemanager-implementation" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="profilemanager-implementation"><span class="header-section-number">8.4</span> ProfileManager Implementation</h2>
 <p>The ProfileManager serves as RobotZero’s configuration system for different operating modes, providing two distinct profiles: one optimized for analysis and another for high-speed performance. This implementation is entirely conditional, only compiled when <code>DEBUG_LEVEL</code> is greater than <code>0</code>, ensuring zero overhead during normal operation.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProfileManager <span class="op">{</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
@@ -1158,12 +1164,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./config_layer.html" class="pagination-link" aria-label="Configuration Layer">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Configuration Layer</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./testing_guide.html" class="pagination-link" aria-label="Testing Guide">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Testing Guide</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Testing Guide</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
