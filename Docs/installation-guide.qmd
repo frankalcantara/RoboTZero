@@ -1,0 +1,945 @@
+---
+title: "Development Environment Installation Guide"
+subtitle: "Complete Setup for RoboTZero Project"
+author: "Frank Alcantara"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    code-fold: false
+    code-tools: true
+    theme: cosmo
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+---
+
+# Introduction
+
+This guide provides comprehensive instructions for setting up the complete development environment for the **RoboTZero** project. All instructions are tailored for **Ubuntu 24.04 LTS** running on **WSL2 (Windows Subsystem for Linux)** on **Windows 11**.
+
+The RoboTZero project combines:
+
+- **Embedded Systems Development**: Arduino/ESP32 programming with PlatformIO
+- **Web Development**: Line Follower Simulator using Svelte and Three.js
+- **Systems Programming**: C++ with WebAssembly compilation using Emscripten
+- **Version Control**: Git and GitHub integration
+
+::: {.callout-important}
+## Prerequisites
+- Windows 11 with WSL2 enabled
+- Ubuntu 24.04 LTS installed in WSL2
+- At least 20GB of free disk space
+- Administrator access on Windows
+:::
+
+# WSL2 Setup and Configuration
+
+## Installing WSL2 on Windows 11
+
+If you haven't installed WSL2 yet, follow these steps:
+
+### Enable WSL2 (PowerShell as Administrator)
+
+```powershell
+# Enable WSL feature
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+# Enable Virtual Machine Platform
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+# Restart your computer
+```
+
+After restarting, open PowerShell as Administrator again:
+
+```powershell
+# Set WSL2 as default version
+wsl --set-default-version 2
+
+# Install Ubuntu 24.04
+wsl --install -d Ubuntu-24.04
+
+# Verify installation
+wsl --list --verbose
+```
+
+## Initial Ubuntu Configuration
+
+Open your Ubuntu terminal from Windows Start Menu:
+
+```bash
+# Update package lists
+sudo apt update && sudo apt upgrade -y
+
+# Install essential build tools
+sudo apt install -y build-essential curl wget git vim nano
+```
+
+## WSL2 Performance Optimization
+
+Create or edit `.wslconfig` in your Windows user directory (`C:\Users\YourUsername\.wslconfig`):
+
+```ini
+[wsl2]
+memory=8GB
+processors=4
+swap=2GB
+localhostForwarding=true
+```
+
+Restart WSL2 to apply changes:
+
+```powershell
+# In PowerShell
+wsl --shutdown
+```
+
+# Core Development Tools
+
+## Git Configuration
+
+```bash
+# Install Git (if not already installed)
+sudo apt install -y git
+
+# Configure your identity
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# Configure default branch name
+git config --global init.defaultBranch main
+
+# Enable credential helper
+git config --global credential.helper store
+
+# Improve performance on WSL2
+git config --global core.filemode false
+git config --global core.autocrlf input
+
+# Verify configuration
+git config --list
+```
+
+## SSH Key Setup for GitHub
+
+```bash
+# Generate SSH key
+ssh-keygen -t ed25519 -C "your.email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Add key to agent
+ssh-add ~/.ssh/id_ed25519
+
+# Display public key (copy this to GitHub)
+cat ~/.ssh/id_ed25519.pub
+```
+
+Add the public key to GitHub:
+1. Go to GitHub → Settings → SSH and GPG keys
+2. Click "New SSH key"
+3. Paste your public key and save
+
+Test the connection:
+
+```bash
+ssh -T git@github.com
+```
+
+## Visual Studio Code
+
+### Install VSCode on Windows
+
+Download and install from: https://code.visualstudio.com/
+
+### Install WSL Extension
+
+1. Open VSCode on Windows
+2. Install "WSL" extension by Microsoft
+3. Press `Ctrl+Shift+P` and select "WSL: Connect to WSL"
+
+### Essential Extensions
+
+Install these extensions in VSCode (WSL mode):
+
+```bash
+# From Ubuntu terminal, open VSCode in WSL
+code .
+```
+
+Install these extensions:
+
+- **General:**
+  - WSL (ms-vscode-remote.remote-wsl)
+  - GitLens (eamodio.gitlens)
+  - Error Lens (usernamehw.errorlens)
+
+- **C/C++:**
+  - C/C++ (ms-vscode.cpptools)
+  - C/C++ Extension Pack (ms-vscode.cpptools-extension-pack)
+  - CMake (twxs.cmake)
+  - CMake Tools (ms-vscode.cmake-tools)
+
+- **PlatformIO:**
+  - PlatformIO IDE (platformio.platformio-ide)
+
+- **Web Development:**
+  - Svelte for VS Code (svelte.svelte-vscode)
+  - ESLint (dbaeumer.vscode-eslint)
+  - Prettier (esbenp.prettier-vscode)
+
+- **Documentation:**
+  - Quarto (quarto.quarto)
+
+# C++ Development Environment
+
+## GCC and Clang Compilers
+
+```bash
+# Install GCC and G++
+sudo apt install -y gcc g++
+
+# Install Clang and LLVM
+sudo apt install -y clang llvm lld
+
+# Install additional tools
+sudo apt install -y clang-format clang-tidy
+
+# Verify installations
+gcc --version
+g++ --version
+clang --version
+clang++ --version
+```
+
+Expected output for Ubuntu 24.04:
+- GCC: 13.x or later
+- Clang: 18.x or later
+
+## CMake Build System
+
+```bash
+# Install CMake
+sudo apt install -y cmake cmake-curses-gui
+
+# Verify installation
+cmake --version
+```
+
+Should be CMake 3.28 or later.
+
+## Additional C++ Libraries
+
+```bash
+# Install common development libraries
+sudo apt install -y \
+    libboost-all-dev \
+    libeigen3-dev \
+    pkg-config \
+    ninja-build
+
+# Verify Eigen installation
+dpkg -L libeigen3-dev | grep eigen3
+```
+
+# Node.js and npm
+
+Node.js is required for Svelte development and the web simulator.
+
+## Install Node.js via nvm
+
+Using nvm (Node Version Manager) allows you to easily switch Node.js versions:
+
+```bash
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Reload shell configuration
+source ~/.bashrc
+
+# Install Node.js LTS
+nvm install --lts
+
+# Set default version
+nvm alias default node
+
+# Verify installation
+node --version
+npm --version
+```
+
+Expected versions:
+- Node.js: 20.x LTS
+- npm: 10.x
+
+## Configure npm
+
+```bash
+# Set global install directory to avoid permission issues
+mkdir -p ~/.npm-global
+npm config set prefix '~/.npm-global'
+
+# Add to PATH (add this to ~/.bashrc)
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+# Update npm to latest
+npm install -g npm@latest
+```
+
+## Essential npm Global Packages
+
+```bash
+# Install global tools
+npm install -g \
+    vite \
+    eslint \
+    prettier \
+    typescript
+
+# Verify installations
+vite --version
+eslint --version
+prettier --version
+tsc --version
+```
+
+# Svelte Development Environment
+
+## Initialize Svelte Project (Test)
+
+Let's verify Svelte setup by creating a test project:
+
+```bash
+# Create test directory
+mkdir -p ~/test-svelte
+cd ~/test-svelte
+
+# Create Svelte project
+npm create vite@latest my-svelte-app -- --template svelte
+
+# Navigate and install
+cd my-svelte-app
+npm install
+
+# Test development server
+npm run dev
+```
+
+Access the dev server from Windows browser at `http://localhost:5173`
+
+::: {.callout-tip}
+## WSL2 Port Forwarding
+WSL2 automatically forwards ports to Windows. You can access the dev server from Windows using `localhost`.
+:::
+
+Clean up test project:
+
+```bash
+cd ~
+rm -rf ~/test-svelte
+```
+
+# Emscripten (WebAssembly Toolchain)
+
+Emscripten is required to compile C++ code to WebAssembly for the browser simulator.
+
+## Install Emscripten SDK
+
+```bash
+# Create directory for tools
+mkdir -p ~/tools
+cd ~/tools
+
+# Clone Emscripten SDK
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+
+# Install latest version
+./emsdk install latest
+
+# Activate latest version
+./emsdk activate latest
+
+# Add to shell configuration
+echo 'source ~/tools/emsdk/emsdk_env.sh > /dev/null 2>&1' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify installation
+emcc --version
+em++ --version
+```
+
+Expected output: Emscripten 3.1.50 or later
+
+## Test Emscripten
+
+```bash
+# Create test file
+cat > hello.cpp << 'EOF'
+#include <iostream>
+int main() {
+    std::cout << "Hello WebAssembly!" << std::endl;
+    return 0;
+}
+EOF
+
+# Compile to WebAssembly
+em++ hello.cpp -o hello.html
+
+# Clean up
+rm hello.cpp hello.html hello.js hello.wasm
+```
+
+# PlatformIO for Arduino/ESP32
+
+PlatformIO is the primary development environment for embedded systems programming.
+
+## Install PlatformIO Core (CLI)
+
+```bash
+# Install Python and pip if not present
+sudo apt install -y python3 python3-pip python3-venv
+
+# Install PlatformIO
+pip3 install --user platformio
+
+# Add to PATH
+echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify installation
+pio --version
+platformio --version
+```
+
+## Install PlatformIO in VSCode
+
+The PlatformIO IDE extension should already be installed (see VSCode extensions section).
+
+Configure PlatformIO:
+
+1. Open VSCode in WSL
+2. Press `Ctrl+Shift+P`
+3. Type "PlatformIO: Home"
+4. Wait for PlatformIO to initialize
+
+## USB Device Access in WSL2
+
+WSL2 requires special configuration to access USB devices (Arduino/ESP32 boards).
+
+### Install usbipd on Windows
+
+Download and install from: https://github.com/dorssel/usbipd-win/releases
+
+Or use winget (PowerShell as Administrator):
+
+```powershell
+winget install --interactive --exact dorssel.usbipd-win
+```
+
+### Setup USB Forwarding in WSL2
+
+In Ubuntu WSL2:
+
+```bash
+# Install USB tools
+sudo apt install -y linux-tools-generic hwdata
+sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/*-generic/usbip 20
+
+# Add user to dialout group (for serial port access)
+sudo usermod -a -G dialout $USER
+
+# Log out and log back in for group changes to take effect
+```
+
+### Connecting USB Devices
+
+On Windows (PowerShell as Administrator):
+
+```powershell
+# List USB devices
+usbipd list
+
+# Bind a device (replace <BUSID> with your device ID)
+usbipd bind --busid <BUSID>
+
+# Attach to WSL
+usbipd attach --wsl --busid <BUSID>
+```
+
+In Ubuntu WSL2:
+
+```bash
+# Verify device is visible
+lsusb
+
+# Check serial ports
+ls -l /dev/ttyUSB* /dev/ttyACM*
+```
+
+::: {.callout-warning}
+## USB Device Persistence
+USB devices must be attached each time you restart WSL2 or reconnect the device.
+:::
+
+## Test PlatformIO Installation
+
+```bash
+# Create test project
+mkdir -p ~/test-pio
+cd ~/test-pio
+
+# Initialize Arduino Uno project
+pio project init --board uno
+
+# Create simple blink program
+cat > src/main.cpp << 'EOF'
+#include <Arduino.h>
+
+void setup() {
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+}
+EOF
+
+# Build project
+pio run
+
+# Clean up
+cd ~
+rm -rf ~/test-pio
+```
+
+## Common PlatformIO Boards
+
+Install frameworks for common boards:
+
+```bash
+# ESP32
+pio platform install espressif32
+
+# Arduino
+pio platform install atmelavr
+
+# ESP8266
+pio platform install espressif8266
+
+# List installed platforms
+pio platform list
+```
+
+# Additional Tools
+
+## Box2D (Physics Engine)
+
+For the Line Follower Simulator:
+
+```bash
+# Install dependencies
+sudo apt install -y libgl1-mesa-dev libx11-dev
+
+# Clone Box2D
+cd ~/tools
+git clone https://github.com/erincatto/box2d.git
+cd box2d
+
+# Build for native (testing)
+mkdir build-native
+cd build-native
+cmake -DCMAKE_BUILD_TYPE=Release \
+      -DBOX2D_BUILD_UNIT_TESTS=OFF \
+      -DBOX2D_BUILD_TESTBED=OFF ..
+make -j$(nproc)
+
+# The library will be in build-native/src/libbox2d.a
+```
+
+For WebAssembly build (when needed):
+
+```bash
+cd ~/tools/box2d
+mkdir build-wasm
+cd build-wasm
+emcmake cmake -DCMAKE_BUILD_TYPE=Release \
+              -DBOX2D_BUILD_UNIT_TESTS=OFF \
+              -DBOX2D_BUILD_TESTBED=OFF ..
+emmake make -j$(nproc)
+```
+
+## Quarto (Documentation)
+
+For rendering documentation and reports:
+
+```bash
+# Download and install Quarto
+cd ~/tools
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.549/quarto-1.4.549-linux-amd64.deb
+sudo dpkg -i quarto-1.4.549-linux-amd64.deb
+
+# Install Quarto dependencies
+sudo apt install -y pandoc
+
+# Verify installation
+quarto --version
+
+# Clean up
+rm quarto-1.4.549-linux-amd64.deb
+```
+
+Test Quarto:
+
+```bash
+# Create test document
+mkdir -p ~/test-quarto
+cd ~/test-quarto
+
+cat > test.qmd << 'EOF'
+---
+title: "Test Document"
+format: html
+---
+
+# Hello Quarto
+
+This is a test document.
+EOF
+
+# Render to HTML
+quarto render test.qmd
+
+# Clean up
+cd ~
+rm -rf ~/test-quarto
+```
+
+# Clone and Setup RoboTZero Project
+
+## Clone Repository
+
+```bash
+# Navigate to workspace
+mkdir -p ~/projects
+cd ~/projects
+
+# Clone repository
+git clone git@github.com:frankalcantara/RoboTZero.git
+cd RoboTZero
+```
+
+## Setup Line Follower Simulator
+
+```bash
+cd ~/projects/RoboTZero/LineFollower/simulator
+
+# Install Node.js dependencies
+npm install
+
+# Download external C++ libraries
+cd cpp/external
+
+# Clone Box2D
+git clone --depth 1 https://github.com/erincatto/box2d.git
+
+# Clone Eigen
+git clone --depth 1 https://gitlab.com/libeigen/eigen.git
+
+# Return to simulator root
+cd ../..
+```
+
+## Build WebAssembly Module
+
+```bash
+# Ensure Emscripten is activated
+source ~/tools/emsdk/emsdk_env.sh
+
+# Build Box2D for WASM
+cd cpp/external/box2d
+mkdir -p build
+cd build
+emcmake cmake -DCMAKE_BUILD_TYPE=Release \
+              -DBOX2D_BUILD_UNIT_TESTS=OFF \
+              -DBOX2D_BUILD_TESTBED=OFF ..
+emmake make -j$(nproc)
+
+# Return to simulator root
+cd ../../../..
+
+# Build simulator WASM
+npm run build:wasm
+```
+
+## Run Development Server
+
+```bash
+cd ~/projects/RoboTZero/LineFollower/simulator
+
+# Start development server
+npm run dev
+```
+
+Access the simulator at `http://localhost:3000` from your Windows browser.
+
+# Troubleshooting
+
+## Common Issues and Solutions
+
+### WSL2 Network Issues
+
+If you can't access localhost from Windows:
+
+```bash
+# Get WSL2 IP address
+ip addr show eth0 | grep inet
+
+# Use this IP from Windows browser instead of localhost
+```
+
+### Permission Issues
+
+```bash
+# Fix file permissions
+sudo chown -R $USER:$USER ~/projects
+
+# Fix npm permissions
+sudo chown -R $USER:$USER ~/.npm
+```
+
+### USB Device Not Detected
+
+```bash
+# Check if usbip kernel module is loaded
+lsmod | grep usbip
+
+# If not loaded, install kernel modules
+sudo apt install linux-tools-generic
+```
+
+### PlatformIO Upload Fails
+
+```bash
+# Check serial port permissions
+ls -l /dev/ttyUSB0  # or ttyACM0
+
+# Add user to dialout group
+sudo usermod -a -G dialout $USER
+
+# Log out and log back in
+```
+
+### Emscripten Not Found
+
+```bash
+# Manually activate Emscripten
+source ~/tools/emsdk/emsdk_env.sh
+
+# Verify
+which emcc
+```
+
+### VSCode Can't Find Compiler
+
+1. Open Command Palette (`Ctrl+Shift+P`)
+2. Type "C/C++: Edit Configurations (UI)"
+3. Set compiler path: `/usr/bin/g++` or `/usr/bin/clang++`
+4. Set IntelliSense mode: `linux-gcc-x64`
+
+## Performance Optimization
+
+### WSL2 Memory Management
+
+Create `.wslconfig` in Windows user directory:
+
+```ini
+[wsl2]
+memory=8GB
+processors=4
+swap=2GB
+localhostForwarding=true
+guiApplications=true
+```
+
+### Faster npm Installs
+
+```bash
+# Use faster registry mirror (optional)
+npm config set registry https://registry.npmmirror.com
+
+# Or stick with default
+npm config set registry https://registry.npmjs.org/
+```
+
+### Faster Builds
+
+```bash
+# Use all CPU cores for make
+echo 'export MAKEFLAGS="-j$(nproc)"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+# Environment Verification
+
+## Verification Script
+
+Save this script to verify all installations:
+
+```bash
+cat > ~/verify-install.sh << 'EOF'
+#!/bin/bash
+
+echo "=== RoboTZero Environment Verification ==="
+echo
+
+# Function to check command
+check_command() {
+    if command -v $1 &> /dev/null; then
+        echo "✓ $1: $(command -v $1)"
+        $1 --version 2>&1 | head -n 1
+    else
+        echo "✗ $1: NOT FOUND"
+    fi
+    echo
+}
+
+# Check all tools
+check_command git
+check_command gcc
+check_command g++
+check_command clang
+check_command clang++
+check_command cmake
+check_command node
+check_command npm
+check_command emcc
+check_command pio
+check_command quarto
+check_command code
+
+echo "=== Checking Groups ==="
+groups | grep dialout && echo "✓ User in dialout group" || echo "✗ User NOT in dialout group"
+echo
+
+echo "=== Checking USB Tools ==="
+command -v usbip &> /dev/null && echo "✓ usbip installed" || echo "✗ usbip NOT installed"
+echo
+
+echo "=== Environment Variables ==="
+echo "PATH includes npm global: $(echo $PATH | grep -q '.npm-global' && echo '✓' || echo '✗')"
+echo "PATH includes PlatformIO: $(echo $PATH | grep -q '.local/bin' && echo '✓' || echo '✗')"
+echo
+
+echo "=== Verification Complete ==="
+EOF
+
+chmod +x ~/verify-install.sh
+```
+
+Run the verification:
+
+```bash
+~/verify-install.sh
+```
+
+# Quick Reference
+
+## Daily Workflow Commands
+
+```bash
+# Start WSL2 from Windows
+wsl
+
+# Activate Emscripten (if needed for WASM development)
+source ~/tools/emsdk/emsdk_env.sh
+
+# Navigate to project
+cd ~/projects/RoboTZero
+
+# Update code
+git pull
+
+# Start simulator development server
+cd LineFollower/simulator
+npm run dev
+
+# Open VSCode in WSL
+code .
+```
+
+## Useful Aliases
+
+Add these to `~/.bashrc` for convenience:
+
+```bash
+# Add to ~/.bashrc
+cat >> ~/.bashrc << 'EOF'
+
+# RoboTZero aliases
+alias robotzero='cd ~/projects/RoboTZero'
+alias sim='cd ~/projects/RoboTZero/LineFollower/simulator'
+alias emsdk-activate='source ~/tools/emsdk/emsdk_env.sh'
+alias pio-update='pio upgrade && pio platform update'
+alias npm-clean='rm -rf node_modules package-lock.json && npm install'
+
+# Git aliases
+alias gs='git status'
+alias gp='git pull'
+alias gc='git commit'
+alias ga='git add'
+
+EOF
+
+# Reload
+source ~/.bashrc
+```
+
+# Resources and Documentation
+
+## Official Documentation
+
+- **WSL2:** https://docs.microsoft.com/en-us/windows/wsl/
+- **Ubuntu:** https://ubuntu.com/wsl
+- **Node.js:** https://nodejs.org/docs/
+- **Svelte:** https://svelte.dev/docs
+- **Emscripten:** https://emscripten.org/docs/
+- **PlatformIO:** https://docs.platformio.org/
+- **CMake:** https://cmake.org/documentation/
+- **Quarto:** https://quarto.org/docs/
+
+## Community Support
+
+- **RoboTZero Issues:** https://github.com/frankalcantara/RoboTZero/issues
+- **Stack Overflow:** Tag questions with `wsl2`, `platformio`, `svelte`, etc.
+- **PlatformIO Community:** https://community.platformio.org/
+
+# Conclusion
+
+You now have a complete development environment for the RoboTZero project! This setup supports:
+
+- ✅ Embedded systems development with PlatformIO
+- ✅ Web application development with Svelte
+- ✅ WebAssembly compilation with Emscripten
+- ✅ Modern C++ development with Clang and GCC
+- ✅ Documentation with Quarto
+
+If you encounter any issues, refer to the Troubleshooting section or create an issue on the GitHub repository.
+
+Happy coding! 🚀
+
+---
+
+**Document Version:** 1.0
+**Last Updated:** 2025-11-05
+**Target Environment:** Ubuntu 24.04 LTS on WSL2 (Windows 11)
