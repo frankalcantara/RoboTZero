@@ -26,6 +26,10 @@ book:
       chapters:
         - archSim.qmd
         - optLineFollower1.qmd
+    - part: AuralFocus
+      chapters:
+        - \AuralFocus\auralfocus-intro.qmd
+        - \AuralFocus\auralfocus-architecture.qmd
     - references.qmd
   page-footer: "Copyright © 2024 Frank de Alcantara"
   site-url: https://frankalcantara.com

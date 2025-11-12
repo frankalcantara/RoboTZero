@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 800 650"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="human_hearing.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   inkscape:export-filename="..\images\human_hearing.webp"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview42"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.87790027"
+     inkscape:cx="649.27649"
+     inkscape:cy="358.24115"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1">
+    <!-- Gradients for ears -->
+    <linearGradient
+       id="earGradient"
+       x1="0%"
+       y1="0%"
+       x2="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         style="stop-color:#ff9800;stop-opacity:1"
+         id="stop1" />
+      <stop
+         offset="100%"
+         style="stop-color:#f57c00;stop-opacity:1"
+         id="stop2" />
+    </linearGradient>
+    <!-- Gradient for head -->
+    <linearGradient
+       id="headGradient"
+       x1="194"
+       y1="199"
+       x2="194"
+       y2="371"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(25.629335,17.086223)">
+      <stop
+         offset="0%"
+         style="stop-color:#feca57;stop-opacity:1"
+         id="stop3" />
+      <stop
+         offset="100%"
+         style="stop-color:#ff9ff3;stop-opacity:0.3"
+         id="stop4" />
+    </linearGradient>
+    <!-- Gradient for sound source -->
+    <radialGradient
+       id="sourceGradient"
+       cx="50%"
+       cy="50%"
+       r="50%">
+      <stop
+         offset="0%"
+         style="stop-color:#4caf50;stop-opacity:1"
+         id="stop5" />
+      <stop
+         offset="100%"
+         style="stop-color:#2e7d32;stop-opacity:1"
+         id="stop6" />
+    </radialGradient>
+    <!-- Gradient for ITD box -->
+    <linearGradient
+       id="itdGradient"
+       x1="447.07408"
+       y1="73.770772"
+       x2="447.07408"
+       y2="251.32076"
+       gradientTransform="matrix(1.2501483,0,0,0.82885223,0.10923006,-2.1634955)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         style="stop-color:#2196f3;stop-opacity:1"
+         id="stop7" />
+      <stop
+         offset="100%"
+         style="stop-color:#1976d2;stop-opacity:1"
+         id="stop8" />
+    </linearGradient>
+    <!-- Gradient for ILD box -->
+    <linearGradient
+       id="ildGradient"
+       x1="447.07408"
+       y1="273.8271"
+       x2="447.07408"
+       y2="451.37709"
+       gradientTransform="matrix(1.2501707,0,0,0.82562122,0.09718924,-7.093836)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         style="stop-color:#9c27b0;stop-opacity:1"
+         id="stop9" />
+      <stop
+         offset="100%"
+         style="stop-color:#7b1fa2;stop-opacity:1"
+         id="stop10" />
+    </linearGradient>
+    <!-- Arrow marker -->
+    <marker
+       id="arrowhead"
+       markerWidth="10"
+       markerHeight="7"
+       refX="9"
+       refY="3.5"
+       orient="auto">
+      <polygon
+         points="0 0, 10 3.5, 0 7"
+         fill="#333"
+         id="polygon10" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#earGradient"
+       id="linearGradient42"
+       x1="229.19625"
+       y1="202.75447"
+       x2="229.19625"
+       y2="243.03163"
+       gradientTransform="matrix(0.78208087,0,0,1.2786402,25.629335,17.086223)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#earGradient"
+       id="linearGradient43"
+       x1="446.56507"
+       y1="202.75447"
+       x2="446.56507"
+       y2="243.03163"
+       gradientTransform="matrix(0.78208087,0,0,1.2786402,25.629335,17.086223)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#sourceGradient"
+       id="radialGradient43"
+       cx="280"
+       cy="100"
+       r="12.75"
+       fx="280"
+       fy="100"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(25.629335,17.086223)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#sourceGradient"
+       id="radialGradient44"
+       cx="120"
+       cy="180"
+       r="12.75"
+       fx="120"
+       fy="180"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(25.629335,17.086223)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#sourceGradient"
+       id="radialGradient45"
+       cx="60"
+       cy="285"
+       r="12.75"
+       fx="60"
+       fy="285"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(25.629335,17.086223)" />
+  </defs>
+  <!-- Title -->
+  <text
+     x="400"
+     y="25"
+     font-family="Arial"
+     font-size="16"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333"
+     id="text10">
+    Human Auditory System: Spatial Localization Mechanisms
+  </text>
+  <!-- Main diagram area background -->
+  <rect
+     x="16.867525"
+     y="44.715229"
+     width="520"
+     height="480"
+     fill="#f8f9fa"
+     stroke="#333333"
+     stroke-width="2"
+     rx="8"
+     id="rect10"
+     ry="8" />
+  <!-- Head (simplified circle) -->
+  <circle
+     cx="305.62933"
+     cy="302.08621"
+     r="85"
+     fill="url(#headGradient)"
+     stroke="#333333"
+     stroke-width="2"
+     id="circle10"
+     style="fill:url(#headGradient)" />
+  <!-- Left ear -->
+  <ellipse
+     cx="220.62933"
+     cy="302.08621"
+     rx="15"
+     ry="25"
+     fill="url(#earGradient)"
+     stroke="#333333"
+     stroke-width="1.5"
+     id="ellipse10"
+     style="fill:url(#linearGradient42)" />
+  <text
+     x="220.62933"
+     y="307.08621"
+     font-family="Arial"
+     font-size="10px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text11">L</text>
+  <!-- Right ear -->
+  <ellipse
+     cx="390.62933"
+     cy="302.08621"
+     rx="15"
+     ry="25"
+     fill="url(#earGradient)"
+     stroke="#333333"
+     stroke-width="1.5"
+     id="ellipse11"
+     style="fill:url(#linearGradient43)" />
+  <text
+     x="390.62933"
+     y="307.08621"
+     font-family="Arial"
+     font-size="10px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text12">R</text>
+  <!-- Interaural distance line -->
+  <line
+     x1="223.01843"
+     y1="402.32785"
+     x2="393.01843"
+     y2="402.32785"
+     stroke="#333333"
+     stroke-width="2"
+     stroke-dasharray="5, 5"
+     id="line12" />
+  <path
+     d="m 220.62934,337.08622 v 66.21437"
+     stroke="#333333"
+     stroke-width="2"
+     id="path12"
+     style="stroke-width:1.2;stroke-dasharray:3.6, 3.6;stroke-dashoffset:0" />
+  <path
+     d="m 390.62934,337.08622 v 66.21437"
+     stroke="#333333"
+     stroke-width="2"
+     id="path13"
+     style="stroke-width:1.2;stroke-dasharray:3.6, 3.6;stroke-dashoffset:0" />
+  <!-- Interaural distance label -->
+  <text
+     x="304.01843"
+     y="422.32785"
+     font-family="Arial"
+     font-size="11"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text13"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">d = 17 cm</text>
+  <text
+     x="304.01843"
+     y="437.32785"
+     font-family="Arial"
+     font-size="9"
+     text-anchor="middle"
+     fill="#666"
+     id="text14"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#666666">Interaural separation</text>
+  <!-- Sound source at 0° (front) -->
+  <circle
+     cx="305.62933"
+     cy="117.08622"
+     r="12"
+     fill="url(#sourceGradient)"
+     stroke="#333333"
+     stroke-width="1.5"
+     id="circle14"
+     style="fill:url(#radialGradient43)" />
+  <text
+     x="305.62933"
+     y="97.08622"
+     font-family="Arial"
+     font-size="10"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text15"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">0°</text>
+  <!-- Sound waves from 0° source (concentric arcs) -->
+  <path
+     d="m 305.0598,134.21209 q 0,38 -50,88 50,50 100,0 -50,-50 -50,-88"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.6"
+     id="path15" />
+  <path
+     d="m 305.0598,147.21209 q 0,45 -60,105 60,60 120,0 -60,-60 -60,-105"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.4"
+     id="path16" />
+  <g
+     id="g42"
+     transform="matrix(0.5932882,0.51367596,-0.5109153,0.60573844,112.43155,-190.58295)"
+     style="stroke:#6a6aff;stroke-opacity:1">
+    <path
+       d="m 363.18566,339.875 q 38,0 88,50 50,-50 0,-100 -50,50 -88,50"
+       fill="none"
+       stroke="#4caf50"
+       stroke-width="1.5"
+       opacity="0.6"
+       id="path15-5"
+       style="stroke:#6a6aff;stroke-opacity:1" />
+    <path
+       d="m 376.18566,339.875 q 45,0 105,60 60,-60 0,-120 -60,60 -105,60"
+       fill="none"
+       stroke="#4caf50"
+       stroke-width="1.5"
+       opacity="0.4"
+       id="path16-5"
+       style="stroke:#6a6aff;stroke-opacity:1" />
+    <path
+       d="m 389.18566,339.875 q 52,0 122,70 70,-70 0,-140 -70,70 -122,70"
+       fill="none"
+       stroke="#4caf50"
+       stroke-width="1.5"
+       opacity="0.2"
+       id="path17-1"
+       style="stroke:#6a6aff;stroke-opacity:1" />
+  </g>
+  <path
+     d="m 305.0598,160.21209 q 0,52 -70,122 70,70 140,0 -70,-70 -70,-122"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.2"
+     id="path17" />
+  <!-- Sound source at 60° (left) -->
+  <circle
+     cx="145.62933"
+     cy="197.08623"
+     r="12"
+     fill="url(#sourceGradient)"
+     stroke="#333333"
+     stroke-width="1.5"
+     id="circle17"
+     style="fill:url(#radialGradient44)" />
+  <text
+     x="115.62933"
+     y="192.08623"
+     font-family="Arial"
+     font-size="10"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text17"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">60°</text>
+  <!-- Sound waves from 60° source (straight wave fronts) -->
+  <!-- Path length difference visualization for 60° -->
+  <!-- Sound source at 90° (left lateral) -->
+  <circle
+     cx="85.629333"
+     cy="302.08621"
+     r="12"
+     fill="url(#sourceGradient)"
+     stroke="#333333"
+     stroke-width="1.5"
+     id="circle20"
+     style="fill:url(#radialGradient45)" />
+  <text
+     x="60.629333"
+     y="307.08621"
+     font-family="Arial"
+     font-size="10"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text20"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">90°</text>
+  <!-- Sound waves from 90° source (parallel lines) -->
+  <!-- ITD (Interaural Time Difference) explanation box -->
+  <rect
+     x="560.01794"
+     y="60.017933"
+     width="219.96413"
+     height="145.09"
+     fill="url(#itdGradient)"
+     stroke="#333333"
+     stroke-width="2"
+     rx="6"
+     id="rect22"
+     style="fill:url(#itdGradient)"
+     ry="6" />
+  <text
+     x="670"
+     y="85"
+     font-family="Arial"
+     font-size="12"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="white"
+     id="text22"
+     style="-inkscape-font-specification:'Arial, Bold';font-family:Arial;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.33333333px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">
+    ITD - Time Difference
+  </text>
+  <text
+     x="570"
+     y="110"
+     font-family="Arial"
+     font-size="10"
+     fill="white"
+     id="text23"
+     style="-inkscape-font-specification:'Arial, Normal';font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.66666667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">
+    • Time delay between ears
+  </text>
+  <text
+     x="570"
+     y="132.70309"
+     font-family="Arial"
+     font-size="10"
+     fill="#ffffff"
+     id="text24"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Maximum for lateral sound:</text>
+  <text
+     x="626.13281"
+     y="152.35541"
+     font-family="mono"
+     font-size="10"
+     fill="#ffffff"
+     id="text25"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">ITD_max ≈ 495 μs</text>
+  <text
+     x="571.1391"
+     y="174.88664"
+     font-family="Arial"
+     font-size="9"
+     fill="#ffffff"
+     id="text26"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Most effective &lt; 1.5 kHz</text>
+  <text
+     x="570.56952"
+     y="194.68219"
+     font-family="Arial"
+     font-size="9"
+     fill="#ffffff"
+     id="text27"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Azimuth resolution: ~1°</text>
+  <!-- ILD (Interaural Level Difference) explanation box -->
+  <rect
+     x="560.01593"
+     y="220.01596"
+     width="219.96809"
+     height="144.52441"
+     fill="url(#ildGradient)"
+     stroke="#333333"
+     stroke-width="2"
+     rx="6"
+     id="rect27"
+     style="fill:url(#ildGradient)"
+     ry="6" />
+  <text
+     x="670"
+     y="245"
+     font-family="Arial"
+     font-size="12"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="white"
+     id="text28"
+     style="-inkscape-font-specification:'Arial, Bold';font-family:Arial;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.33333333px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">
+    ILD - Level Difference
+  </text>
+  <text
+     x="570"
+     y="270"
+     font-family="Arial"
+     font-size="10"
+     fill="white"
+     id="text29"
+     style="-inkscape-font-specification:'Arial, Normal';font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:14.66666667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">
+    • Intensity difference
+  </text>
+  <text
+     x="570"
+     y="290.9473"
+     font-family="Arial"
+     font-size="10"
+     fill="#ffffff"
+     id="text30"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Caused by head shadow</text>
+  <text
+     x="570"
+     y="311.89456"
+     font-family="Arial"
+     font-size="9"
+     fill="#ffffff"
+     id="text31"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Most effective &gt; 2 kHz</text>
+  <text
+     x="570"
+     y="329.74811"
+     font-family="Arial"
+     font-size="9"
+     fill="#ffffff"
+     id="text32"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Wavelength &lt; head size</text>
+  <text
+     x="570.56952"
+     y="350.6954"
+     font-family="Arial"
+     font-size="9"
+     fill="#ffffff"
+     id="text33"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Can reach 20 dB for lateral</text>
+  <!-- Formula box for ITD -->
+  <rect
+     x="560"
+     y="380"
+     width="220"
+     height="70"
+     fill="#f0f0f0"
+     stroke="#333"
+     stroke-width="1"
+     rx="4"
+     id="rect33" />
+  <text
+     x="670"
+     y="399.58276"
+     font-family="Arial"
+     font-size="11"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text34"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">ITD Calculation</text>
+  <text
+     x="571.13904"
+     y="422.15231"
+     font-family="mono"
+     font-size="9"
+     fill="#333333"
+     id="text35"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">ITD(φ) = (d/v_sound) × sin(φ)</text>
+  <text
+     x="576.83447"
+     y="439.43045"
+     font-family="Arial"
+     font-size="8"
+     fill="#666"
+     id="text36"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#666666">d = separation, φ = azimuth angle</text>
+  <!-- Legend -->
+  <rect
+     x="560.0274"
+     y="463.76245"
+     width="219.94519"
+     height="61.210133"
+     fill="#f0f0f0"
+     stroke="#333333"
+     stroke-width="1"
+     rx="4"
+     id="rect36"
+     ry="4" />
+  <text
+     x="670.56952"
+     y="482.59598"
+     font-family="Arial"
+     font-size="11"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text37"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.3333px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Key Parameters</text>
+  <text
+     x="569.43048"
+     y="504.58276"
+     font-family="Arial"
+     font-size="9"
+     fill="#333333"
+     id="text38"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">• Dynamic range: ~120 dB</text>
+  <text
+     x="570"
+     y="520"
+     font-family="Arial"
+     font-size="9"
+     fill="#333"
+     id="text39"
+     style="-inkscape-font-specification:'Arial, Normal';font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">
+    • Frequency band: 20 Hz - 20 kHz
+  </text>
+  <!-- Bottom annotation -->
+  <text
+     x="280.80545"
+     y="543.72369"
+     font-family="Arial"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text40"
+     style="-inkscape-font-specification:'Arial, Normal';font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Sound localization combines ITD (phase) and ILD (magnitude) cues</text>
+  <text
+     x="280.80545"
+     y="563.72369"
+     font-family="Arial"
+     font-size="9px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text41"
+     style="-inkscape-font-specification:'Arial, Normal';font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:16px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">The brain uses both mechanisms for robust 3D spatial perception</text>
+  <!-- Coordinate system indicator -->
+  <text
+     x="39.19455"
+     y="516.00372"
+     font-family="Arial"
+     font-size="8px"
+     fill="#999999"
+     id="text42"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#999999">Azimuth: 0° = front, 90° = left lateral</text>
+  <circle
+     id="path42"
+     style="fill:#ffffff;stroke:#ff0000"
+     cx="313.81696"
+     cy="167.44499"
+     r="0.34406829" />
+  <path
+     d="m 102.31543,304.71588 q 37.82868,-3.6043 92.34577,41.42776 45.03207,-54.51708 -9.48502,-99.54915 -45.03207,54.51709 -82.86075,58.12139"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.6"
+     id="path15-1"
+     style="stroke:#ff6b6b;stroke-opacity:1" />
+  <path
+     d="m 115.25682,303.48283 q 44.79713,-4.26826 110.21763,49.77022 54.03848,-65.4205 -11.38202,-119.45898 -54.03848,65.4205 -98.83561,69.68876"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.4"
+     id="path16-52"
+     style="stroke:#ff6b6b;stroke-opacity:1" />
+  <path
+     d="m 128.19821,302.24978 q 51.76557,-4.93221 128.08949,58.11268 63.0449,-76.32392 -13.27903,-139.36881 -63.04489,76.32392 -114.81046,81.25613"
+     fill="none"
+     stroke="#4caf50"
+     stroke-width="1.5"
+     opacity="0.2"
+     id="path17-7"
+     style="stroke:#ff6b6b;stroke-opacity:1" />
+</svg>
