@@ -81,6 +81,7 @@ O que isso muda na spec/arquitetura.
 | Nível | Significado | Pode virar requisito? |
 | --- | --- | --- |
 | **Observado** | Visto diretamente em captura/log | Sim, com citação |
+| **Observado (documental)** | Afirmado por documentação pública licenciada; não executado nem visto em runtime | Não sozinho; exige spec e teste |
 | **Derivado** | Dedução direta de fatos observados | Sim, com justificativa |
 | **Inferido** | Hipótese plausível | Não; precisa de teste |
 | **Desconhecido** | Não determinado | Não; registrar como unknown |

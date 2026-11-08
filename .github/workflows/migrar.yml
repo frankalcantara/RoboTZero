@@ -1,0 +1,61 @@
+name: Migrar D1
+
+# Só roda quando um merge na main altera algum diretório `migrations/`.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'migrations/**'
+      - '**/migrations/**'
+
+permissions:
+  contents: read
+
+# Nunca aplicar duas migrações ao mesmo tempo.
+concurrency:
+  group: migrar-d1
+  cancel-in-progress: false
+
+jobs:
+  migrar:
+    name: Aplicar no D1 remoto
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout (histórico completo)
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Instalar Wrangler
+        run: npm install -g wrangler@4.153.0
+
+      - name: Descobrir migrações alteradas
+        id: diff
+        env:
+          BEFORE: ${{ github.event.before }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            BEFORE=$(git rev-parse "$SHA^" 2>/dev/null || echo "$SHA")
+          fi
+
+          {
+            echo 'arquivos<<MIGRACOES_EOF'
+            git diff --name-only "$BEFORE" "$SHA" | grep -E '(^|/)migrations/' || true
+            echo 'MIGRACOES_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      # Para cada diretório `migrations/` alterado, encontra o wrangler.toml
+      # mais próximo, lê a binding de D1 e aplica as migrações pendentes.
+      - name: Aplicar no D1 remoto
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CHANGED_FILES: ${{ steps.diff.outputs.arquivos }}
+        run: node .github/scripts/aplicar-migracoes.mjs

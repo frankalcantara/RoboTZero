@@ -1,0 +1,140 @@
+name: ESP32Sim
+
+# Só o ESP32Sim. Os outros projetos do repositório têm gates próprios em
+# `ci.yml` e não devem pagar por um build de C++/WASM.
+on:
+  push:
+    paths:
+      - 'ESP32Sim/**'
+      - '.github/workflows/esp32sim-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'ESP32Sim/**'
+      - '.github/workflows/esp32sim-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: esp32sim-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+  # emsdk não entra no cache do job: `install latest` é rápido o bastante e o
+  # cache do SDK (~1 GB) custa mais do que economiza. Revisitar se o job passar
+  # de 5 min.
+  EMSDK_VERSION: latest
+
+jobs:
+  nativo:
+    name: Core nativo
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Ninja e CMake >= 3.28 (mínimo do CMakePresets.json). O runner já traz
+      # ambos, mas fixar a instalação evita depender da imagem do dia.
+      - name: Dependências de build
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ninja-build cmake
+
+      - name: Configurar
+        run: cmake --preset native
+        working-directory: ESP32Sim
+
+      - name: Compilar
+        run: cmake --build --preset native
+        working-directory: ESP32Sim
+
+      - name: Testar
+        run: ctest --preset native
+        working-directory: ESP32Sim
+
+  wasm:
+    name: Core WASM
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Dependências de build
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ninja-build cmake
+
+      # emsdk oficial, sem action de terceiros: menos superfície de supply chain
+      # para um build que vai virar artefato distribuído.
+      - name: Instalar emsdk
+        run: |
+          git clone --depth 1 https://github.com/emscripten-core/emsdk.git "$RUNNER_TEMP/emsdk"
+          "$RUNNER_TEMP/emsdk/emsdk" install "$EMSDK_VERSION"
+          "$RUNNER_TEMP/emsdk/emsdk" activate "$EMSDK_VERSION"
+          echo "EMSDK=$RUNNER_TEMP/emsdk" >> "$GITHUB_ENV"
+
+      # `wasm_smoke` e `worker_smoke` rodam o `.wasm` no Node.
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Configurar
+        run: cmake --preset wasm
+        working-directory: ESP32Sim
+
+      - name: Compilar
+        run: cmake --build --preset wasm
+        working-directory: ESP32Sim
+
+      - name: Testar
+        run: ctest --preset wasm
+        working-directory: ESP32Sim
+
+      # O studio importa este artefato; um único dono do `.wasm` (E0-05/E0-06).
+      - name: Publicar artefato
+        uses: actions/upload-artifact@v7
+        with:
+          name: esp32sim-wasm
+          path: ESP32Sim/build/wasm/wasm/esp32sim.wasm
+          if-no-files-found: error
+          retention-days: 7
+
+  studio:
+    name: Studio
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: wasm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ESP32Sim/apps/studio/package-lock.json
+
+      - name: Baixar o core
+        uses: actions/download-artifact@v8
+        with:
+          name: esp32sim-wasm
+          path: ESP32Sim/build/wasm/wasm
+
+      - name: Instalar
+        run: npm ci
+        working-directory: ESP32Sim/apps/studio
+
+      # pinos (AP-03), catálogo i18n (AP-05), grafo do bundle inicial (AP-01)
+      - name: Testes
+        run: npm test
+        working-directory: ESP32Sim/apps/studio
+
+      - name: Checagem de tipos
+        run: npm run check
+        working-directory: ESP32Sim/apps/studio
+
+      - name: Build
+        run: npm run build
+        working-directory: ESP32Sim/apps/studio

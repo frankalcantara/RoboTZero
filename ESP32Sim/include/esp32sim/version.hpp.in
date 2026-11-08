@@ -1,0 +1,23 @@
+#pragma once
+
+#include <cstdint>
+#include <string_view>
+
+namespace esp32sim {
+
+struct Version {
+  std::uint32_t major;
+  std::uint32_t minor;
+  std::uint32_t patch;
+};
+
+inline constexpr Version kVersion{
+    @PROJECT_VERSION_MAJOR@U, @PROJECT_VERSION_MINOR@U, @PROJECT_VERSION_PATCH@U};
+
+[[nodiscard]] constexpr std::string_view version_string() noexcept {
+  return "@PROJECT_VERSION@";
+}
+
+[[nodiscard]] constexpr Version version() noexcept { return kVersion; }
+
+}  // namespace esp32sim

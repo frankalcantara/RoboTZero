@@ -8,6 +8,8 @@ real, visualização 3D em three.js e hospedagem na Cloudflare.
 >
 > **Nome:** `ESP32Sim` é um codinome de trabalho. O nome público deve ser
 > definido antes do lançamento, com revisão de marca.
+>
+> **Independência:** projeto independente, não afiliado à Espressif ou à Wokwi.
 
 ## Visão
 
@@ -86,7 +88,19 @@ ESP32Sim/
   docs/
 ```
 
-A estrutura de código só deve ser criada quando a Fase 0 aprovar a arquitetura.
+A estrutura de produto só deve ser criada quando a Fase 0 aprovar a arquitetura.
+O esqueleto atual (`CMakeLists.txt`, `cmake/`, `core/`, `include/`, `wasm/`,
+`tests/`) é o spike E0-03/E0-04 e não implica arquitetura aceita.
+
+## Build
+
+Pré-requisitos e comandos estão em [`BUILD.md`](BUILD.md).
+
+```bash
+cmake --preset native
+cmake --build --preset native
+ctest --preset native
+```
 
 ## Como começar
 

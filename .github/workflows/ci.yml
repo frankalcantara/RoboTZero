@@ -1,0 +1,79 @@
+name: CI
+
+# Todo push (qualquer branch) e todo pull_request para a main.
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  segredos:
+    name: Segredo versionado
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout (histórico completo)
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # Em repositórios de organização, configure o segredo GITLEAKS_LICENSE
+      # (licença gratuita para projetos open source). Em conta pessoal é opcional.
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+  migracoes:
+    name: Migrações D1
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Valida nomes, ordem e SQL de cada diretório `migrations/` do repositório
+      # aplicando tudo em um SQLite em memória. Não acessa o D1 remoto.
+      - name: Validar migrações
+        run: node .github/scripts/validar-migracoes.mjs
+
+  html:
+    name: HTML válido
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Valida apenas o HTML dos nossos projetos. AuralFocus, Docs e
+      # LineFollower* são projetos separados e não entram no gate do ESP32Sim.
+      - name: Validar HTML
+        run: |
+          mapfile -t arquivos < <(git ls-files '*.html' | grep -vE '^(AuralFocus|Docs|LineFollower|LineFollower_Simulator)/' || true)
+          if [ "${#arquivos[@]}" -eq 0 ]; then
+            echo "::notice::Nenhum HTML versionado para validar."
+            exit 0
+          fi
+          printf 'Arquivos: %s\n' "${arquivos[*]}"
+          npx --yes html-validate@11.17.0 "${arquivos[@]}"

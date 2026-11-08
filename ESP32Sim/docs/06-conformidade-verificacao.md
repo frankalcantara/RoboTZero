@@ -87,6 +87,39 @@ Cada firmware tem:
 - trace dourado;
 - tolerâncias (se houver).
 
+### 2.5 Testes do studio
+
+O studio é apresentação: não tem comportamento de emulação para provar. Tem,
+porém, contratos que impedem a UI de virar um segundo emulador
+([ADR 0007](adr/0007-padroes-de-apresentacao-do-studio.md)). Cada padrão AP tem
+verificação própria, e **nenhuma delas compara pixel**.
+
+| AP | O que prova | Teste | Nível | Bloqueia merge |
+| --- | --- | --- | --- | --- |
+| AP-01 | IDs únicos e sem órfão; bundle inicial não importa three.js nem o analisador | `studio.catalog.ids`, `studio.bundle.initial` | unitário + build | Sim |
+| AP-02 | N eventos de pino em um frame produzem uma única atualização de UI | `worker_smoke` (bridge), `studio.frame.coalesce`, `studio.frame.no-store-write` | unitário (bridge no E0-05; studio no E1-06) | Sim |
+| AP-03 | Módulos puros sem DOM e sem three.js, com teste | `studio.pure.imports`, `studio.pure.coverage` | lint + unitário | Sim |
+| AP-04 | Falha de painel ou de rota não derruba o restante da tela | `studio.error.panel`, `studio.error.route` | unitário + E2E | Sim |
+| AP-05 | Nenhuma string visível inline; catálogo sem chave faltando ou órfã | `studio.i18n.inline`, `studio.i18n.catalog` | lint + unitário | Sim |
+| AP-06 | Controles operáveis por teclado; sem violação crítica de acessibilidade | `studio.a11y.keyboard`, `studio.a11y.axe` | unitário + E2E | Sim |
+| AP-07 | Nenhum literal de cor fora do arquivo de tokens; tema re-lê a paleta | `studio.theme.tokens`, `studio.theme.reload` | lint + unitário | Sim |
+| AP-08 | O mesmo trace dourado produz o mesmo diagrama de timing | `studio.trace.golden` | unitário golden | Sim |
+
+Regras de execução:
+
+- **AP-01 e AP-02 entram no CI no primeiro código de studio** (E0-05/E0-06);
+  os oito são exigidos no G1.
+- `worker_smoke` (`ctest --preset wasm`) já cobre o lado da bridge: N eventos
+  emitidos pelo Worker saem em uma única drenagem, sem chamada JS por ciclo. O
+  teste de coalescência na camada reativa nasce com o studio (E1-06).
+- Testes de AP rodam no pipeline de §8.1, entre goldens e benchmark.
+- E2E de AP-04 e AP-06 roda no preview deploy, não no build local.
+- O golden de AP-08 é o **modelo** do diagrama (canais, slots, níveis), não o
+  bitmap renderizado.
+
+Limites: estes testes não provam qualidade visual, fps real nem usabilidade.
+Isso fica em §7.3 (benchmark de studio) e na revisão manual do gate.
+
 ## 3. Trace dourado
 
 ### 3.1 Formato
@@ -233,7 +266,8 @@ Critérios:
 
 ```text
 lint → build nativo → testes unitários → build WASM → testes WASM
-     → goldens → benchmark → deploy preview
+     → goldens → studio (catálogo, i18n, a11y, tokens) → benchmark
+     → deploy preview
 ```
 
 ### 8.2 Matriz
@@ -264,7 +298,7 @@ lint → build nativo → testes unitários → build WASM → testes WASM
 | Gate | Critério |
 | --- | --- |
 | G0 | Spikes, ADRs, licenças e benchmark inicial |
-| G1 | Blink/Serial + goldens nativo/WASM + deploy |
+| G1 | Blink/Serial + goldens nativo/WASM + deploy + AP-01..AP-08 |
 | G2 | S3 + periféricos + GDB + diferencial QEMU |
 | G3 | Wi-Fi/BLE + C6 + estresse |
 | Release | SBOM, licenças, limitações, rollback |
@@ -307,4 +341,6 @@ Links para traces, hashes e relatórios.
 - Tolerância ampla para esconder divergência.
 - Trace que muda o timing.
 - Teste que depende de relógio de parede.
+- Screenshot como prova de contrato de UI: é flaky e não prova o contrato.
+- Evento de pino virando atualização de estado na UI (quebra AP-02).
 - Comparar com Wokwi e tratar como especificação.

@@ -1,0 +1,133 @@
+name: Revisão por IA
+
+# A cada PR aberto ou atualizado. PRs de fork e do Dependabot ficam de fora: o
+# GITHUB_TOKEN deles é somente leitura e não pode comentar nem consumir Copilot.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  # Permite que o GITHUB_TOKEN faça requisições ao Copilot (GitHub Actions).
+  copilot-requests: write
+
+concurrency:
+  group: revisao-ia-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  revisar:
+    name: Revisar com Copilot
+    if: ${{ !github.event.pull_request.head.repo.fork && github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Instalar Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Montar prompt com o diff
+        id: prompt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          TITULO: ${{ github.event.pull_request.title }}
+        run: |
+          gh pr diff "$PR" > pr.diff
+          if [ ! -s pr.diff ]; then
+            echo "::notice::Diff vazio; nada para revisar."
+            echo "vazio=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          limite=120000
+          tamanho=$(wc -c < pr.diff)
+          head -c "$limite" pr.diff > pr.diff.recortado
+          truncado=""
+          if [ "$tamanho" -gt "$limite" ]; then
+            truncado=$'\n\n[diff truncado: mostrando os primeiros 120000 de '"$tamanho"' bytes]'
+          fi
+
+          {
+            cat <<'EOF'
+          Você revisa o diff de um pull request do ESP32Sim — core de simulação
+          em C++23 compilado para WebAssembly, com studio TypeScript/three.js.
+          Responda em português (pt-BR), de forma objetiva e técnica.
+
+          Procure apenas problemas reais:
+          - bugs, condições de corrida e vazamentos;
+          - quebra de determinismo (relógio de parede, rand global, ordem não
+            determinística, alocação por instrução);
+          - segurança e exposição de segredos;
+          - violação de clean-room, licença ou asset sem procedência;
+          - ABI C quebrada e mudança de comportamento sem teste;
+          - migrações D1 irreversíveis.
+
+          Ignore estilo, formatação e preferências pessoais. Cite arquivo e linha.
+          Se não houver achados, escreva "Sem achados relevantes".
+          Use markdown, no máximo 4000 caracteres.
+          EOF
+            printf '\nPR #%s: %s\n\n' "$PR" "$TITULO"
+            printf '%s\n' '```diff'
+            cat pr.diff.recortado
+            printf '%s\n' '```'
+            printf '%s\n' "$truncado"
+          } > prompt.txt
+
+      - name: Revisar com Copilot
+        id: ia
+        if: steps.prompt.outputs.vazio != 'true'
+        uses: actions/ai-inference@v3
+        with:
+          prompt-file: ./prompt.txt
+          model: gpt-4.1
+          system-prompt: >-
+            Você é um revisor de código sênior. Priorize correção, segurança,
+            determinismo e testes. Seja conciso e responda em pt-BR.
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          # Se a política da organização bloquear o Copilot via GITHUB_TOKEN,
+          # configure COPILOT_PAT (PAT com a permissão "Copilot Requests").
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT || github.token }}
+
+      # Atualiza o comentário anterior (marcador oculto) em vez de criar um novo
+      # a cada push no PR.
+      - name: Publicar comentário
+        if: steps.prompt.outputs.vazio != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          RESPOSTA: ${{ steps.ia.outputs.response-file }}
+        run: |
+          {
+            echo '<!-- revisao-ia -->'
+            echo '## Revisão automática (Copilot)'
+            echo
+            cat "$RESPOSTA"
+            echo
+            echo '<sub>Gerado por actions/ai-inference com Copilot CLI.</sub>'
+          } > comentario.md
+
+          node -e 'const fs = require("node:fs"); const p = process.argv[1]; const max = 60000; let s = fs.readFileSync(p, "utf8"); if (s.length > max) s = s.slice(0, max) + "\n\n… (resposta truncada)"; fs.writeFileSync(p, s);' comentario.md
+
+          comentario=$(gh api --paginate "repos/$REPO/issues/$PR/comments" \
+            --jq '.[] | select(.body | startswith("<!-- revisao-ia -->")) | .id' | head -n 1)
+
+          if [ -n "$comentario" ]; then
+            gh api -X PATCH "repos/$REPO/issues/comments/$comentario" -F body=@comentario.md > /dev/null
+            echo "Comentário $comentario atualizado."
+          else
+            gh api "repos/$REPO/issues/$PR/comments" -F body=@comentario.md > /dev/null
+            echo "Comentário criado."
+          fi

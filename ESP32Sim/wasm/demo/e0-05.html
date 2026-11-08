@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>E0-05 — Worker + SharedArrayBuffer</title>
+    <style>
+      body {
+        font: 14px/1.6 system-ui, sans-serif;
+        margin: 2rem;
+        max-width: 42rem;
+      }
+      #status {
+        font-variant-numeric: tabular-nums;
+      }
+      .ok {
+        color: #0a7d33;
+      }
+      .bad {
+        color: #b00020;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>E0-05 — Worker + SharedArrayBuffer</h1>
+    <p>
+      crossOriginIsolated:
+      <b id="isolated">?</b>
+    </p>
+    <p id="status">carregando…</p>
+
+    <script type="module">
+      // O core roda no Worker; esta página só drena o ring e escreve o DOM.
+      // Uma leitura por frame e uma escrita por frame: o padrão do AP-02.
+      import { drain, EVENT } from '/wasm/worker/ring.mjs';
+
+      const status = document.getElementById('status');
+      const isolated = document.getElementById('isolated');
+      isolated.textContent = String(crossOriginIsolated);
+      isolated.className = crossOriginIsolated ? 'ok' : 'bad';
+
+      if (!crossOriginIsolated) {
+        status.textContent = 'sem COOP/COEP: use node wasm/dev-server.cjs';
+        throw new Error('not cross-origin isolated');
+      }
+
+      const worker = new Worker('/wasm/worker/esp32sim.worker.mjs', { type: 'module' });
+      worker.onerror = (event) => {
+        status.textContent = `erro no worker: ${event.message}`;
+        status.className = 'bad';
+      };
+      worker.onmessageerror = () => {
+        status.textContent = 'erro ao desserializar mensagem do worker';
+        status.className = 'bad';
+      };
+
+      // O protocolo é estritamente request/response: uma mensagem por comando.
+      const next = () =>
+        new Promise((resolve) =>
+          worker.addEventListener('message', (event) => resolve(event.data), { once: true }),
+        );
+
+      status.textContent = 'baixando wasm…';
+      const bytes = await (await fetch('/esp32sim.wasm')).arrayBuffer();
+      worker.postMessage({ cmd: 'load', bytes }, [bytes]);
+      status.textContent = 'instanciando no worker…';
+      const ready = await next();
+      if (ready.type === 'error') {
+        throw new Error(ready.message);
+      }
+
+      worker.postMessage({ cmd: 'init', capacity: 256 });
+      const ring = await next();
+      if (ring.type === 'error') {
+        throw new Error(ring.message);
+      }
+      status.textContent = `ring ${ring.capacity} pronto; drenando por frame…`;
+
+      let frames = 0;
+      let drained = 0;
+      let lastCycle = 0n;
+
+      function frame() {
+        worker.postMessage({ cmd: 'run', cycles: 500 });
+        worker.postMessage({ cmd: 'emit', type: EVENT.PIN_CHANGE, code: frames & 1, payload: frames });
+
+        drained += drain(ring.buffer, ring.ringOffset, ring.eventsOffset, (event) => {
+          lastCycle = event.cycle;
+        });
+
+        frames += 1;
+        status.textContent =
+          `v${ready.version} · frame ${frames} · ${drained} eventos · ` +
+          `último ciclo ${lastCycle} · ABI ${ready.abi.toString(16)}`;
+        requestAnimationFrame(frame);
+      }
+
+      // Primeiro frame imediato: o status aparece mesmo em aba não renderizada.
+      frame();
+    </script>
+  </body>
+</html>

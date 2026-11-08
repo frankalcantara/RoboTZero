@@ -215,52 +215,116 @@ Não colocar Wi-Fi no MVP: o custo de fidelidade é alto e desvia do núcleo.
 - Memória compartilhada para snapshots e ring buffers.
 - `postMessage` para controle de baixa frequência.
 
-### 5.2 Superfície inicial
+### 5.2 Superfície atual (ABI 0.1)
 
-```cpp
-#define ESP32SIM_ABI_VERSION 1
+Implementada em `include/esp32sim/abi.h` e exercitada por `tests/test_abi.cpp`
+(nativo) e `wasm/smoke.cjs` (WASM).
+
+```c
+#define ESP32SIM_ABI_VERSION_MAJOR 0
+#define ESP32SIM_ABI_VERSION_MINOR 1
+#define ESP32SIM_ABI_VERSION UINT32_C(0x0001)   /* major << 16 | minor */
+
+typedef int32_t esp32sim_status;
+
+typedef struct esp32sim_version {
+  uint32_t major;
+  uint32_t minor;
+  uint32_t patch;
+  uint32_t abi_version;
+} esp32sim_version;   /* congelado em 16 bytes: nunca acrescentar campos */
+
+typedef struct esp32sim_config {
+  uint32_t struct_size;
+  uint32_t flags;          /* reservado, deve ser 0 */
+} esp32sim_config;
 
 typedef struct esp32sim_handle esp32sim_handle;
 
-typedef struct {
-  uint32_t struct_size;
-  uint32_t chip_id;
-  uint32_t board_id;
-  uint32_t flags;
-  const uint8_t* flash;
-  size_t flash_size;
-} esp32sim_config;
-
-extern "C" {
 uint32_t esp32sim_abi_version(void);
-esp32sim_handle* esp32sim_create(const esp32sim_config* config);
+esp32sim_status esp32sim_get_version(esp32sim_version* out);
+const char* esp32sim_version_string(void);
+
+esp32sim_status esp32sim_create(const esp32sim_config* config,
+                                esp32sim_handle** out_handle);
 void esp32sim_destroy(esp32sim_handle* handle);
-int esp32sim_reset(esp32sim_handle* handle);
-int esp32sim_run(esp32sim_handle* handle, uint64_t max_cycles);
-int esp32sim_set_pin(esp32sim_handle* handle, uint32_t pin, uint32_t level);
-int esp32sim_read_serial(esp32sim_handle* handle, uint8_t* buffer, size_t capacity);
-int esp32sim_snapshot(esp32sim_handle* handle, void* buffer, size_t capacity);
-}
+esp32sim_status esp32sim_run(esp32sim_handle* handle, uint64_t cycles);
+uint64_t esp32sim_cycle_count(const esp32sim_handle* handle);
+
+/* Ring de eventos (E0-05). Ver §5.3. */
+esp32sim_status esp32sim_event_ring_init(esp32sim_handle* handle, uint32_t capacity);
+esp32sim_event_ring* esp32sim_event_ring_header(esp32sim_handle* handle);
+const esp32sim_event* esp32sim_event_ring_events(const esp32sim_handle* handle);
 ```
 
-- `snapshot` devolve structs compactas de estado (pinos, displays, LEDs).
+Regras:
+
+- `config == NULL` usa defaults; `struct_size` menor que o conhecido ou
+  `flags != 0` devolve `ESP32SIM_ERROR_INVALID_ARGUMENT`.
+- `esp32sim_config` só evolui por acréscimo de campos ao final; o chamador
+  informa seu próprio `struct_size`.
+- `esp32sim_version` é congelado: sem `struct_size`, acrescentar um campo faria
+  um core novo escrever além do buffer de um host antigo. Informação nova de
+  identidade vai em função nova. O layout é verificado por `static_assert` em
+  `core/src/abi.cpp`.
+- `esp32sim_run` avança `cycles` e devolve `ESP32SIM_ERROR_STATE` em overflow,
+  sem alterar o estado.
+- Handle nulo é erro em toda função, exceto `esp32sim_cycle_count`, que devolve 0.
+- Nenhuma exceção cruza a fronteira; erros são códigos estáveis.
+- `esp32sim_event_ring_init` aceita só potência de 2 ≥ 2 (slot por máscara) e
+  recusa a segunda chamada com `ESP32SIM_ERROR_STATE`.
+
+Ainda não implementado (próximas fatias): `esp32sim_reset`, `esp32sim_set_pin`,
+`esp32sim_read_serial`, `esp32sim_snapshot`, e os campos `chip_id`, `board_id`,
+flash e PSRAM em `esp32sim_config` — que dependem da especificação do boot ROM
+(E1-01).
+
+- `snapshot` devolverá structs compactas de estado (pinos, displays, LEDs).
 - Serial e eventos usam ring buffer em SharedArrayBuffer.
-- Erros usam códigos estáveis; strings ficam no control plane.
+- Strings ficam no control plane, fora do hot path.
 - Embind pode ser usado para conveniência, nunca no hot path.
+
+O módulo WASM é autônomo (`-sSTANDALONE_WASM`): zero imports, sem glue JS e
+exports com os mesmos nomes da ABI C. Ver [`BUILD.md`](../BUILD.md).
 
 ### 5.3 Protocolo de eventos
 
 ```text
-Event {
-  uint32_t type;
-  uint32_t code;
-  uint64_t cycle;
-  uint64_t payload;
+Event {              /* 24 bytes, little-endian */
+  uint32_t type;     /* offset 0  */
+  uint32_t code;     /* offset 4  */
+  uint64_t cycle;    /* offset 8  */
+  uint64_t payload;  /* offset 16 */
+}
+
+RingHeader {         /* 16 bytes */
+  uint32_t capacity; /* potência de 2, >= 2 */
+  uint32_t head;     /* produtor: core  */
+  uint32_t tail;     /* consumidor: host */
+  uint32_t dropped;  /* produtor */
 }
 ```
 
 Tipos iniciais: `SERIAL_TX`, `PIN_CHANGE`, `IRQ`, `DEVICE_STATE`,
-`TRACE_MARK`, `ERROR`, `STOPPED`, `BREAKPOINT`.
+`TRACE_MARK`, `ERROR`, `STOPPED`, `BREAKPOINT` (valores 1 a 8 em `abi.h`).
+
+`PIN_CHANGE` carrega `code` = GPIO e `payload` = nível (0 = baixo, != 0 =
+alto). O produtor real é o GPIO do SoC (E1-02); até lá, o hook de teste
+`esp32sim_test_emit` é o único produtor; o studio o usa como estímulo de
+bancada (E0-06).
+
+Regras do ring:
+
+- SPSC: um produtor (core) e um consumidor (host). `head` e `tail` são
+  contadores livres de 32 bits; o slot é `contador & (capacidade - 1)`.
+- Toda leitura e escrita de `head`, `tail` e `dropped` é atômica:
+  `std::atomic_ref` no C++ e `Atomics` no JS. Leitura simples pode rasgar.
+- O produtor publica com release depois de escrever o evento; o consumidor lê
+  `head` com acquire e avança `tail` depois de copiar os eventos.
+- Ring cheio descarta o evento mais novo e incrementa `dropped`. O core nunca
+  bloqueia por causa do host.
+- O host drena uma vez por frame e agrega antes de tocar na UI; nenhum evento
+  vira atualização de estado reativa (AP-02 do ADR 0007).
 
 O bridge drena eventos a cada frame e agrega antes de enviar à UI.
 
@@ -335,6 +399,21 @@ Renderer (three.js: cena, materiais, picking)
 - Navegação por teclado no editor.
 - Contraste e foco visível.
 - Monitor serial com `aria-live` controlado.
+
+### 7.6 Padrões de apresentação
+
+Normativos pelo [ADR 0007](adr/0007-padroes-de-apresentacao-do-studio.md):
+
+| ID | Regra |
+| --- | --- |
+| AP-01 | Catálogo de painéis por ID, carga sob demanda, ID duplicado falha em teste |
+| AP-02 | Estado de simulação fora da camada reativa; UI atualiza só em mudança discreta |
+| AP-03 | Lógica de apresentação pura e testada, sem DOM e sem three.js |
+| AP-04 | Contenção de erro em três níveis: rota, painel, desenho |
+| AP-05 | i18n/RTL desde o primeiro commit; nenhuma string visível inline |
+| AP-06 | Acessibilidade operacional: teclado, leitor de tela, `prefers-reduced-motion` |
+| AP-07 | Cor sempre por token de tema; nunca literal em canvas ou componente |
+| AP-08 | Analisador lógico e diagramas consomem trace do core, não animação |
 
 ## 8. Build C++23/WASM
 
@@ -514,3 +593,6 @@ Os números são metas, não promessas. Cada release mede e publica.
 - [`adr/0002-prioridade-de-chips.md`](adr/0002-prioridade-de-chips.md)
 - [`adr/0003-topologia-cloudflare.md`](adr/0003-topologia-cloudflare.md)
 - [`adr/0004-threading-e-isolamento.md`](adr/0004-threading-e-isolamento.md)
+- [`adr/0005-escopo-de-paridade-do-mvp.md`](adr/0005-escopo-de-paridade-do-mvp.md)
+- [`adr/0006-identidade-e-defaults.md`](adr/0006-identidade-e-defaults.md)
+- [`adr/0007-padroes-de-apresentacao-do-studio.md`](adr/0007-padroes-de-apresentacao-do-studio.md)

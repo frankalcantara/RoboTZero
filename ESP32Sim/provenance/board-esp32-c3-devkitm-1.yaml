@@ -1,0 +1,27 @@
+# Manifesto de proveniência — placa do studio
+#
+# Asset autoral: gerado por `apps/studio/tools/gen-board.mjs`, sem material de
+# terceiros. Formato conforme docs/08-riscos-e-licencas.md §1.3.
+
+id: board-esp32-c3-devkitm-1
+type: 3d-model
+source: "gerado em apps/studio/tools/gen-board.mjs (caixa unitária paramétrica)"
+author: "ESP32Sim contributors"
+license: "licença do projeto (ainda não decidida — ver README.md)"
+retrieved_at: "2026-10-28"
+sha256: "d7abf24c23e28741e43535572cb1702932bdfae18b9816ef45a38f3a5d397cce"
+modifications: >-
+  Modelo simplificado para o spike E0-06: duas caixas (PCB e LED) em
+  milímetros, sem cor e sem pinos. Não é a placa real; o modelo de E1-06
+  substitui este arquivo e este manifesto.
+allowed_in_distribution: true
+reviewed_by: "pendente (clean-room-auditor)"
+
+# Notas
+#
+# - Nenhum dado, geometria, textura ou nome interno de outro produto foi usado.
+# - Dimensões (25,4 x 17,8 mm) são fato público do ESP32-C3-DevKitM-1.
+# - O LED em GPIO8 é o LED da placa; o mapa de pinos do diagrama (UN-009)
+#   continua desconhecido e é resolvido em E1-06.
+# - Regenerar com: `node apps/studio/tools/gen-board.mjs`. O hash acima muda
+#   se o gerador mudar; atualize este arquivo junto.

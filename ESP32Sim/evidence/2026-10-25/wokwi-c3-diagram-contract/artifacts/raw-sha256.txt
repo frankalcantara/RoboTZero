@@ -1,0 +1,13 @@
+# Hashes dos arquivos-fonte pinados
+# Repositório: https://github.com/wokwi/wokwi-docs
+# Commit: 5c90e532d24fb8ac4cd471e9568db03917011e91 (branch main)
+# Licença: MIT — Copyright (c) 2021-2024 CodeMagic LTD
+# Coletado em: 2026-10-25T02:10:34-03:00 (America/Sao_Paulo)
+# Método: Invoke-WebRequest + Get-FileHash -Algorithm SHA256
+#
+# sha256                                                            bytes  caminho
+4309562684d375e437100cb21a20d1278c7976ddf0869d7ed2946ad81fb0fc67  1085   LICENSE
+7c8def287d78f1f8daa96643a0fa1ab8a0d586e64bcde7b556d4db2ad06ac711  6541   docs/diagram-format.md
+1fa2562ef3b7c162026a91d489b9639e2a2061467b6a2e95d2c165071436720b  18236  docs/guides/esp32.md
+55b0d58aa823571aaab418ab68480f84483bb41d458eb9d5f3041b6037898aa6  3919   docs/parts/wokwi-led.md
+433d712320da7e58574e1978442195743d65bd5155670d21f9dd22ea92de286b  6420   docs/guides/serial-monitor.md

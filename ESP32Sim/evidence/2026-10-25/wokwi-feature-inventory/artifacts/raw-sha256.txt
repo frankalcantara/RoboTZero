@@ -1,0 +1,16 @@
+# Hashes dos arquivos-fonte pinados
+# Repositório: https://github.com/wokwi/wokwi-docs
+# Commit: 5c90e532d24fb8ac4cd471e9568db03917011e91 (branch main)
+# Licença: MIT — Copyright (c) 2021-2024 CodeMagic LTD
+# Coletado em: 2026-10-25 (America/Sao_Paulo)
+# Método: Invoke-WebRequest + Get-FileHash -Algorithm SHA256
+#
+# sha256                                                            bytes  caminho
+4309562684d375e437100cb21a20d1278c7976ddf0869d7ed2946ad81fb0fc67  1085   LICENSE
+1fa2562ef3b7c162026a91d489b9639e2a2061467b6a2e95d2c165071436720b  18236  docs/guides/esp32.md
+433d712320da7e58574e1978442195743d65bd5155670d21f9dd22ea92de286b  6420   docs/guides/serial-monitor.md
+277f87d5b38d9163e354dfd9550014c22874799190ce5a30100f71f621ee4a57  6514   docs/guides/diagram-editor.md
+823f6c11891cccd1dde7e80781104bf7c2412b51534e41f0e781d815a1109c14  8254   docs/guides/logic-analyzer.md
+6c4c798db6930c303a9dfefd98ae8f85abef791be5f7519e71016fb993a11210  2386   docs/guides/debugger.md
+94e21f703581f0c8fe76d91a2a54013ee96b935f2be3de0a824df5e675d23b49  11526  docs/guides/esp32-wifi.md
+80164510ef8657abdbed8c97025ad1c8937a80bf2d7f51e0afa206c2ea054225  2874   docs/guides/libraries.md

@@ -76,13 +76,23 @@ licenças. A decisão final está em `adr/0002-prioridade-de-chips.md`.
 | P-010 | RMT (IR/NeoPixel) | — | Sim | Sim |
 | P-011 | PCNT | — | Sim | Sim |
 | P-012 | GDMA | — | Sim | Sim |
-| P-013 | RTC, watchdog, brownout | — | Parcial | Sim |
+| P-013 | RTC, watchdog, brownout | Parcial (watchdog básico) | Parcial | Sim |
 | P-014 | eFuse | — | Parcial | Sim |
 | P-015 | USB Serial/JTAG | — | Sim (S3) | Sim |
 | P-016 | USB OTG | — | — | Sim |
 | P-017 | LCD/CAM (S3/P4) | — | — | Sim |
 | P-018 | TWAI/CAN | — | — | Sim |
 | P-019 | Temperatura/sensores internos | — | — | Sim |
+| P-020 | I2S (áudio: ADC/DAC, PDM) | — | — | Sim |
+
+> **P-013:** o watchdog básico entra no MVP por `04` E1-02; RTC e brownout
+> ficam para V1/V2. Este alinhamento resolve o conflito registrado no
+> [ADR 0005](adr/0005-escopo-de-paridade-do-mvp.md) §6.1.
+>
+> **P-020:** I2S não constava desta tabela até 2026-10-25. A ausência no MVP e
+> no V1 é decisão registrada, não omissão: áudio exige DMA contínuo e
+> temporização de amostra que competem com o orçamento de ciclos do G1. Entra no
+> V2 junto com os devices de microfone e amplificador.
 
 ### 2.4 Conectividade
 
@@ -113,9 +123,9 @@ licenças. A decisão final está em `adr/0002-prioridade-de-chips.md`.
 | ID | Requisito | Prioridade | Critério |
 | --- | --- | --- | --- |
 | U-001 | Cena 3D com placa e componentes | Must | 60 fps em cena média |
-| U-002 | Editor de circuito e fios | Must | Conectar/desconectar pinos |
+| U-002 | Editor de circuito e fios | Must | Adicionar, mover e excluir parte; criar e excluir fio; conectar/desconectar pinos |
 | U-003 | Editor de código com destaque | Must | TypeScript/Arduino/C++ |
-| U-004 | Monitor serial | Must | TX/RX e timestamps |
+| U-004 | Monitor serial | Must | TX/RX com timestamps; entrada do usuário para o firmware; modos `auto`/`always`/`never` |
 | U-005 | Console de build e erros | Must | Logs do compilador |
 | U-006 | Controles de execução | Must | Run/pause/step/reset/velocidade |
 | U-007 | Analisador lógico | Should | Waveform de pinos |

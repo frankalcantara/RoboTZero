@@ -52,6 +52,9 @@ reviewed_by: "clean-room-auditor"
 | Velxio | AGPLv3 | Referência de arquitetura | Copyleft forte; **não copiar**; uso em rede pode obrigar liberar fonte |
 | avr8js | MIT | Referência de design AVR | Não cobre ESP32 |
 | wokwi-elements | MIT | Referência visual | Assets podem ter licenças próprias; verificar cada um |
+| wokwi/wokwi-docs | MIT | Documentação de referência (evidência) | Incluir aviso; não cobre software/marca do simulador |
+| `agharsallah/esp-labs-web` | **Nenhuma** (todos os direitos reservados) | Referência de padrões de apresentação | **Nenhuma reutilização**: não copiar código, textos, GIFs, ícones ou modelos. Padrões reimplementados a partir do [ADR 0007](adr/0007-padroes-de-apresentacao-do-studio.md) |
+| `agharsallah/esp-labs` | **Nenhuma** (todos os direitos reservados) | Referência de escopo de firmware | **Nenhuma reutilização**: não copiar firmware, mapa de pinos nem testes. Protocolos vêm de ISO/NXP/datasheet, não da implementação |
 | three.js | MIT | Render 3D | Incluir aviso |
 | Svelte | MIT | UI | Incluir aviso |
 | Vite | MIT | Build | Incluir aviso |
@@ -72,6 +75,12 @@ reviewed_by: "clean-room-auditor"
 
 > “Verificar” significa: confirmar a licença exata na versão pinada antes de
 > usar em distribuição.
+>
+> **Sem licença = sem permissão.** Um repositório público sem `LICENSE` e sem
+> campo `license` está sob direitos autorais reservados. Ele pode ser lido como
+> referência de comportamento, mas nenhum código, texto, asset ou dado pode ser
+> copiado, adaptado ou redistribuído. Ideias e padrões só entram por spec escrita
+> pela equipe, como no ADR 0007.
 
 ## 3. Estratégia de licenciamento do produto
 

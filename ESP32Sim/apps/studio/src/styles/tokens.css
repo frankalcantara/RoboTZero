@@ -1,0 +1,56 @@
+/* Tokens de tema: único lugar com cor literal (AP-07). O render lê daqui. */
+:root {
+  color-scheme: dark;
+  --scene-background: #101418;
+  --scene-light: #ffffff;
+  --board-pcb: #1d4b3a;
+  --led-off: #3a2a2a;
+  --led-on: #ff4433;
+  --text: #e8eef2;
+  --surface: #1a2027;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--scene-background);
+  color: var(--text);
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+#app,
+main {
+  height: 100%;
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.bench {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  background: var(--surface);
+}
+
+.bench label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+canvas {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+#hud {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}

@@ -50,11 +50,15 @@ gantt
 
 - [ ] `01-avaliacao-rea.md` revisado com evidências reais.
 - [ ] Revisão de ToS/EULA do Wokwi e das licenças de QEMU/Velxio/Arduino.
-- [ ] Spike: CMake + Emscripten + C++23 + Web Worker + `SharedArrayBuffer`.
-- [ ] Spike: three.js carrega board glTF e atualiza LED por evento do worker.
+- [x] Spike: CMake + Emscripten + C++23 + Web Worker + `SharedArrayBuffer`
+  (E0-03..05; `ctest --preset wasm` roda `wasm_smoke` e `worker_smoke`).
+- [x] Spike: three.js carrega board glTF e atualiza LED por evento do worker
+  (E0-06; `apps/studio`, ver [`apps/studio/README.md`](../apps/studio/README.md)).
 - [ ] Spike: Cloudflare Pages/Workers com COOP/COEP e WASM.
 - [ ] Benchmark: ciclos/s, memória, tamanho, tempo de carga.
 - [ ] ADRs 0001–0004 aceitos.
+- [x] ADRs 0005 (paridade) e 0006 (identidade) propostos, revisados e aceitos.
+- [x] ADR 0007 (padrões de apresentação do studio) proposto, revisado e aceito.
 - [ ] Backlog da Fase 1 refinado e estimado.
 - [ ] Riscos priorizados e donos definidos.
 
@@ -76,6 +80,8 @@ gantt
 | E0-12 | ADR 0004 (threading) | wasm-toolchain | E0-05 |
 | E0-13 | Evidence log do Wokwi (se permitido) | rea-evidence | E0-02 |
 | E0-14 | Especificação do MVP C3 | lead | E0-09..12 |
+| E0-15 | ADRs 0005 (paridade) e 0006 (identidade) | lead | E0-14 |
+| E0-16 | ADR 0007 (padrões de apresentação do studio) | lead, web3d | E0-05 |
 
 ### Gate G0
 
